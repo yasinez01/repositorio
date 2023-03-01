@@ -1,9 +1,8 @@
 <?php
 
 $curl = curl_init();
-$url= $_GET["url"];
-$email = $_GET["text"];
-$password=$_GET["password"];
+//$usur = $_GET["text"];
+//$password=$_GET["password"];
 curl_setopt_array($curl, array(
   CURLOPT_URL =>'https://openapi.emtmadrid.es/v1/mobilitylabs/user/login/',
   CURLOPT_RETURNTRANSFER => true,
@@ -14,8 +13,10 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'GET',
   CURLOPT_HTTPHEADER => array(
-    'email: '.$email,//yasinezziani@gmail.com',
-    'password: '.$password,//@2001yasinA',
+    //'email: '.$usur,//yasinezziani@gmail.com',
+    'email: yasinezziani@gmail.com',
+    //'password: '.$password, //@2001yasinA',
+    'password: @2001yasinA',
     'Cookie: SERVERIDP=71c191fa49acbbd36b480b3d575968dd658b92cf'
   ),
 ));
