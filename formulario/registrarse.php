@@ -10,10 +10,10 @@
     // mysqli_free_result($consulta) libera los resultados obtenidos de la consulta
     
     $usuario=$_GET["username"];
-    $password=$_GET["password"];
-    $conexion=mysql_connect("localhost","root","","slkdjf");
-    $consulta="CREATE TABLE USUARIOS(user varchar(255),pass varchar(255))";
-    //$consulta="SELECT * FROM USUARIO WHERE USUARIO='$usuario' and clave='$Clave'";
+    $pass=$_GET["password"];
+    $conexion=mysql_connect("dbserver","grupo28","ahX9Zeelei","db_grupo28");
+    //$consulta="CREATE TABLE USUARIOS(user varchar(255),pass varchar(255))";
+    $consulta="SELECT * FROM USUARIO WHERE USUARIO='$usuario' and clave='$pass'";
     $resultado=mysql_query($conexion,$consulta);
     $filas=mysql_num_rowa($resultado);
     if($filas>0){

@@ -2,10 +2,10 @@
 
 $curl = curl_init();
 $url= $_GET["url"];
-$email = $_GET["email"];
+$email = $_GET["text"];
 $password=$_GET["password"];
 curl_setopt_array($curl, array(
-  CURLOPT_URL => $url,//'https://openapi.emtmadrid.es/v1/mobilitylabs/user/login/',
+  CURLOPT_URL =>'https://openapi.emtmadrid.es/v1/mobilitylabs/user/login/',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
