@@ -1,0 +1,21 @@
+h3{
+    border-bottom: solid red;
+    width: 215px;
+    margin-left: 300px;
+}
+#rellenardatos{
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+    margin-left:3%;
+    margin-right:3%;
+}
+#informacion{
+    background-color: rgb(88, 88, 208);
+    color:azure;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#datos{
+    margin-left: 10%;
+}
