@@ -8,14 +8,27 @@
     <link rel="stylesheet" href="paradasalrededor.css" > 
 </head>
 <body>
-    <h3>PARADAS ALREDEDOR</h3>
-    <div id="rellenardatos">
-        Para conocer las paradas alrededor de una parada determinada, indica la parada y los metros alrededor de esta misma.
-        <p id="informacion"> Rellene los siguientes datos:</p>
-        <div id="datos">
-            Nª de la parada: <input type="number" name="parada"><br><br>
-            Metros alrededor de la parada: <input type="number" name="metros"><br><br>
+    <form action="paradasalrededor.php" method="get">
+        <h3>PARADAS ALREDEDOR</h3>
+        SELECCIONA UNA OPCIÓN Y RELLENA SUS DATOS CORRESPONDIENTES.<br><br>
+        <div id="rellenardatos">
+            OPCION 1:<br>
+            Para conocer las paradas alrededor de una parada determinada, indica la parada y los metros alrededor de esta misma.
+            <p id="informacion"> Rellene los siguientes datos:</p>
+            <div id="datos">
+                Nª de la parada: <input type="number" name="parada"><br><br>
+                Metros alrededor de la parada: <input type="number" name="metros"><br><br>
+            </div>
+            OPCION 2:<br>
+            Para conocer las paradas alrededor de un punto geográfico, indica la longitud, latitud y radio.
+            <p id="informacion"> Rellene los siguientes datos:</p>
+            <div id="datos">
+                Longitud: <input name="longitud"><br><br>
+                Latitud: <input name="latitud"><br><br>
+                Metros alrededor del punto: <input type="number" name="radio"><br><br>
+            </div>
+            <input type="submit" value="Continuar" style="margin-left: 43%; margin-bottom: 2%; margin-top:8%">
         </div>
-    </div>
+    </form>
 </body>
 </html>
