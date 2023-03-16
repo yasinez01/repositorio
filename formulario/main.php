@@ -28,6 +28,6 @@ $losdatos=json_decode($response);
 $accessToken=$losdatos->{'data'}[0]->{'accessToken'}; 
 $_SESSION['accessToken']= $accessToken; 
 echo'<script type="text/javascript">
-      alert("AccessToken conseguido");
+      alert("El accessToken es :'.$accessToken.' !!");
         window.location.href="web.html";
         </script>'; 

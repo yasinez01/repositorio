@@ -21,7 +21,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'GET',
   CURLOPT_HTTPHEADER => array(
-    'accessToken: '.$_SESSION['accessToken'],//9a6b9c9d-912b-4c77-917a-a0a603a3614f',
+    'accessToken: '.$_SESSION['accessToken'],//361279d0-1ec5-4111-b7f3-2b6ac6364879',
     'Cookie: SERVERIDP=b45a524a27860afec772689f834014cb22bcb504'
   ),
 ));

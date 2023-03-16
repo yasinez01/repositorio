@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradas Alrededor</title>
+    <link rel="stylesheet" href="lineainformacion.css" > 
+</head>
+<body>
+    <form action="lineainformacion.php" method="get">
+        <h3>LÍNEA DE INFORMACIÓN</h3>
+        SELECCIONA UNA OPCIÓN Y RELLENA SUS DATOS CORRESPONDIENTES.<br><br>
+        <div id="rellenardatos">
+            OPCION 1:<br>
+            información sobre una línea(detalle):
+            <p id="informacion"> Rellene los siguientes datos:</p>
+            <div id="datos">
+                Nª de la línea: <input type="number" name="linea"><br><br>
+                Fecha: <input type="date" name="fechadetalle"><br><br>
+            </div>
+            OPCION 2:<br>
+            información sobre líneas(general):
+            <p id="informacion"> Rellene el siguiente dato:</p>
+            <div id="datos">
+                Fecha: <input type="date" name="fechageneral"><br><br>
+            </div>
+            <input type="submit" value="Continuar" style="margin-left: 43%; margin-bottom: 2%; margin-top:8%">
+        </div>
+    </form>
+</body>
+</html>
