@@ -1,0 +1,46 @@
+h3{
+    border-bottom: solid red;
+    width: 241px;
+    margin-left: 300px;
+}
+#rellenardatos{
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+    margin-left:3%;
+    margin-right:3%;
+}
+#frase{
+    width: 50%;
+    float: left;
+    background: #2c7abf;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 1.3em;
+    margin-left: 5%;
+    padding: 10px 0;
+}
+#lineas{
+    margin-left: 5%;
+}
+#informacion{
+    background-color: rgb(88, 88, 208);
+    color:azure;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#datos{
+    margin-left: 10%;
+}
+#resultado{
+    color: chocolate;
+}
+#contenedor{
+    display: flex;
+}
+#deAaB,#deBaA{
+    width:40%;
+    margin:0px;
+    padding:0px;
+}

@@ -21,11 +21,10 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'GET',
   CURLOPT_HTTPHEADER => array(
-    'accessToken: '.$_SESSION['accessToken'],//361279d0-1ec5-4111-b7f3-2b6ac6364879',
+    'accessToken: '.$_SESSION['accessToken'],
     'Cookie: SERVERIDP=b45a524a27860afec772689f834014cb22bcb504'
   ),
 ));
-
 $response = curl_exec($curl);
 $datos=json_decode($response);
 if(str_starts_with($datos->{'description'}, "NO data found")){

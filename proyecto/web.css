@@ -14,10 +14,12 @@ header{
 ul{
     list-style-type: none;  
     display:flex;
-    padding: 5px; 
+    padding: 5px;
 }
 li{
     padding: 30px;
+    margin-left:10%;
+    margin-right:10%;
 }
 .enlaces img{
     padding: 0px;

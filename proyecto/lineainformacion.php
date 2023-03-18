@@ -16,14 +16,7 @@ if(empty($numerolinea) && empty($fecha1) && empty($fecha2)){
         window.location.href="lineainformacion.html";
         </script>'; 
     }else{
-        echo'<script type="text/javascript">
-        alert("Estoy aquí");
-        </script>'; 
         $url='https://openapi.emtmadrid.es/v1/transport/busemtmad/lines/'.$numerolinea.'/info/'.str_replace("-","",$fecha1).'/';
-        echo'<script type="text/javascript">
-        alert("El enlace es '.$url.' !!");
-        </script>'; 
-
     }
 }elseif(!empty($numerolinea) && !empty($fecha1) && !empty($fecha2)){
     echo'<script type="text/javascript">

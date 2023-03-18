@@ -11,7 +11,6 @@
         alert("Autentificacion fallida");
         window.location.href="login.html";
         </script>';
-        //header("location:login.html");
     }
     mysqli_close($conexion);
 ?>

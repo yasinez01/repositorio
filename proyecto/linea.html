@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradas Alrededor</title>
+    <link rel="stylesheet" href="linea.css" > 
+</head>
+<body>
+    <form action="linea.php" method="get">
+        <h3>RECORRIDO DE MI LÍNEA</h3>
+        <div id="rellenardatos">
+            <p id="frase">Indica la línea que desea</p>
+            <select name="opcion" id="lineas" title="Selecciona una línea">
+                <option selected="selected" value="">Selecciona una línea...</option>
+                <option value="361" data-alias="001" data-from="ESTACION DE ATOCHA" data-to="MONCLOA">001 - ESTACION DE ATOCHA-MONCLOA</option>
+                <option value="001" data-alias="1" data-from="CRISTO REY" data-to="PROSPERIDAD">1 - CRISTO REY-PROSPERIDAD</option>
+                <option value="362" data-alias="002" data-from="PUERTA DE TOLEDO" data-to="ARGÜELLES">002 - PUERTA DE TOLEDO-ARGÜELLES</option>
+                <option value="002" data-alias="2" data-from="MANUEL BECERRA" data-to="REINA VICTORIA">2 - MANUEL BECERRA-REINA VICTORIA</option>
+                <option value="003" data-alias="3" data-from="PUERTA TOLEDO" data-to="SAN AMARO">3 - PUERTA TOLEDO-SAN AMARO</option>
+                <option value="004" data-alias="4" data-from="CIUDAD LINEAL" data-to="PUERTA ARGANDA">4 - CIUDAD LINEAL-PUERTA ARGANDA</option>
+                <option value="005" data-alias="5" data-from="SOL SEVILLA" data-to="CHAMARTIN">5 - SOL SEVILLA-CHAMARTIN</option>
+                <option value="006" data-alias="6" data-from="BENAVENTE" data-to="ORCASITAS">6 - BENAVENTE-ORCASITAS</option>
+                <option value="007" data-alias="7" data-from="ALONSO MARTINEZ" data-to="MANOTERAS">7 - ALONSO MARTINEZ-MANOTERAS</option>
+                <option value="008" data-alias="8" data-from="LEGAZPI" data-to="VALDEBERNARDO">8 - LEGAZPI-VALDEBERNARDO</option>
+                <option value="009" data-alias="9" data-from="SOL SEVILLA" data-to="HORTALEZA">9 - SOL SEVILLA-HORTALEZA</option>
+                <option value="010" data-alias="10" data-from="CIBELES" data-to="PALOMERAS">10 - CIBELES-PALOMERAS</option>
+                <option value="011" data-alias="11" data-from="MARQUES DE VIANA" data-to="BARRIO BLANCO">11 - MARQUES DE VIANA-BARRIO BLANCO</option>
+                <option value="012" data-alias="12" data-from="CRISTO REY" data-to="MARQUES ZAFRA">12 - CRISTO REY-MARQUES ZAFRA</option>
+                <option value="014" data-alias="14" data-from="CONDE DE CASAL" data-to="PIO XII">14 - CONDE DE CASAL-PIO XII</option>
+                <option value="015" data-alias="15" data-from="SOL SEVILLA" data-to="LA ELIPA">15 - SOL SEVILLA-LA ELIPA</option>
+                <option value="016" data-alias="16" data-from="MONCLOA" data-to="PIO XII">16 - MONCLOA-PIO XII</option>
+                <option value="017" data-alias="17" data-from="PLAZA MAYOR" data-to="PARQUE EUROPA">17 - PLAZA MAYOR-PARQUE EUROPA</option>
+                <option value="018" data-alias="18" data-from="PLAZA MAYOR" data-to="VILLAVERDE CRUCE">18 - PLAZA MAYOR-VILLAVERDE CRUCE</option>
+                <option value="019" data-alias="19" data-from="PLAZA CATALUÑA" data-to="LEGAZPI">19 - PLAZA CATALUÑA-LEGAZPI</option>
+                <option value="020" data-alias="20" data-from="SOL SEVILLA" data-to="PAVONES">20 - SOL SEVILLA-PAVONES</option>
+                <option value="021" data-alias="21" data-from="PINTOR ROSALES" data-to="EL SALVADOR">21 - PINTOR ROSALES-EL SALVADOR</option>
+                <option value="022" data-alias="22" data-from="LEGAZPI" data-to="VILLAVERDE ALTO">22 - LEGAZPI-VILLAVERDE ALTO</option>
+                <option value="023" data-alias="23" data-from="PLAZA MAYOR" data-to="VILLAVERDE CRUCE">23 - PLAZA MAYOR-VILLAVERDE CRUCE</option>
+                <option value="024" data-alias="24" data-from="ESTACION DE ATOCHA" data-to="EL POZO">24 - ESTACION DE ATOCHA-EL POZO</option>
+                <option value="025" data-alias="25" data-from="PLAZA ESPAÑA" data-to="CASA DE CAMPO">25 - PLAZA ESPAÑA-CASA DE CAMPO</option>
+                <option value="026" data-alias="26" data-from="TIRSO DE MOLINA" data-to="DIEGO DE LEON">26 - TIRSO DE MOLINA-DIEGO DE LEON</option>
+                <option value="027" data-alias="27" data-from="EMBAJADORES" data-to="PLAZA CASTILLA">27 - EMBAJADORES-PLAZA CASTILLA</option>
+                <option value="028" data-alias="28" data-from="PUERTA ALCALA" data-to="BARRIO CANILLEJAS">28 - PUERTA ALCALA-BARRIO CANILLEJAS</option>
+                <option value="029" data-alias="29" data-from="FELIPE II" data-to="MANOTERAS">29 - FELIPE II-MANOTERAS</option>
+                <option value="030" data-alias="30" data-from="FELIPE II" data-to="PAVONES">30 - FELIPE II-PAVONES</option>
+                <option value="031" data-alias="31" data-from="PLAZA MAYOR" data-to="ALUCHE">31 - PLAZA MAYOR-ALUCHE</option>
+                <option value="032" data-alias="32" data-from="BENAVENTE" data-to="PAVONES">32 - BENAVENTE-PAVONES</option>
+                <option value="033" data-alias="33" data-from="PRINCIPE PIO" data-to="CASA DE CAMPO">33 - PRINCIPE PIO-CASA DE CAMPO</option>
+                <option value="034" data-alias="34" data-from="CIBELES" data-to="LAS AGUILAS">34 - CIBELES-LAS AGUILAS</option>
+                <option value="035" data-alias="35" data-from="PLAZA MAYOR" data-to="CARABANCHEL ALTO">35 - PLAZA MAYOR-CARABANCHEL ALTO</option>
+                <option value="036" data-alias="36" data-from="ATOCHA" data-to="CAMPAMENTO">36 - ATOCHA-CAMPAMENTO</option>
+                <option value="037" data-alias="37" data-from="CUATRO CAMINOS" data-to="PUENTE VALLECAS">37 - CUATRO CAMINOS-PUENTE VALLECAS</option>
+                <option value="038" data-alias="38" data-from="MANUEL BECERRA" data-to="LAS ROSAS">38 - MANUEL BECERRA-LAS ROSAS</option>
+                <option value="039" data-alias="39" data-from="PLAZA ESPAÑA" data-to="SAN IGNACIO">39 - PLAZA ESPAÑA-SAN IGNACIO</option>
+                <option value="040" data-alias="40" data-from="TRIBUNAL" data-to="ALFONSO XIII">40 - TRIBUNAL-ALFONSO XIII</option>
+                <option value="041" data-alias="41" data-from="ATOCHA" data-to="COLONIA MANZANARES">41 - ATOCHA-COLONIA MANZANARES</option>
+                <option value="042" data-alias="42" data-from="PLAZA CASTILLA" data-to="BARRIO PEÑAGRANDE">42 - PLAZA CASTILLA-BARRIO PEÑAGRANDE</option>
+                <option value="043" data-alias="43" data-from="FELIPE II" data-to="ESTRECHO">43 - FELIPE II-ESTRECHO</option>
+                <option value="044" data-alias="44" data-from="CALLAO" data-to="MARQUES DE VIANA">44 - CALLAO-MARQUES DE VIANA</option>
+                <option value="045" data-alias="45" data-from="LEGAZPI" data-to="REINA VICTORIA">45 - LEGAZPI-REINA VICTORIA</option>
+                <option value="046" data-alias="46" data-from="SOL SEVILLA" data-to="MONCLOA">46 - SOL SEVILLA-MONCLOA</option>
+                <option value="047" data-alias="47" data-from="ATOCHA" data-to="CARABANCHEL ALTO">47 - ATOCHA-CARABANCHEL ALTO</option>
+                <option value="048" data-alias="48" data-from="MANUEL BECERRA" data-to="BARRIO CANILLEJAS">48 - MANUEL BECERRA-BARRIO CANILLEJAS</option>
+                <option value="049" data-alias="49" data-from="PLAZA CASTILLA" data-to="PITIS">49 - PLAZA CASTILLA-PITIS</option>
+                <option value="050" data-alias="50" data-from="PLAZA MAYOR" data-to="AVENIDA MANZANARES">50 - PLAZA MAYOR-AVENIDA MANZANARES</option>
+                <option value="051" data-alias="51" data-from="SOL SEVILLA" data-to="PLAZA PERU">51 - SOL SEVILLA-PLAZA PERU</option>
+                <option value="052" data-alias="52" data-from="SOL SEVILLA" data-to="SANTAMARCA">52 - SOL SEVILLA-SANTAMARCA</option>
+                <option value="053" data-alias="53" data-from="SOL SEVILLA" data-to="ARTURO SORIA">53 - SOL SEVILLA-ARTURO SORIA</option>
+                <option value="054" data-alias="54" data-from="ESTACION DE ATOCHA" data-to="CONGOSTO">54 - ESTACION DE ATOCHA-CONGOSTO</option>
+                <option value="055" data-alias="55" data-from="ATOCHA" data-to="BATAN">55 - ATOCHA-BATAN</option>
+                <option value="056" data-alias="56" data-from="DIEGO DE LEON" data-to="PUENTE VALLECAS">56 - DIEGO DE LEON-PUENTE VALLECAS</option>
+                <option value="057" data-alias="57" data-from="ESTACION DE ATOCHA" data-to="ALTO DEL ARENAL">57 - ESTACION DE ATOCHA-ALTO DEL ARENAL</option>
+                <option value="058" data-alias="58" data-from="PUENTE VALLECAS" data-to="SANTA EUGENIA">58 - PUENTE VALLECAS-SANTA EUGENIA</option>
+                <option value="059" data-alias="59" data-from="ESTACION DE ATOCHA" data-to="SAN CRISTOBAL">59 - ESTACION DE ATOCHA-SAN CRISTOBAL</option>
+                <option value="060" data-alias="60" data-from="PLAZA CEBADA" data-to="ORCASITAS">60 - PLAZA CEBADA-ORCASITAS</option>
+                <option value="061" data-alias="61" data-from="MONCLOA" data-to="NARVAEZ">61 - MONCLOA-NARVAEZ</option>
+                <option value="062" data-alias="62" data-from="CRISTO REY" data-to="LOS PUERTOS">62 - CRISTO REY-LOS PUERTOS</option>
+                <option value="063" data-alias="63" data-from="FELIPE II" data-to="SANTA EUGENIA">63 - FELIPE II-SANTA EUGENIA</option>
+                <option value="064" data-alias="64" data-from="CUATRO CAMINOS" data-to="PITIS">64 - CUATRO CAMINOS-PITIS</option>
+                <option value="065" data-alias="65" data-from="BENAVENTE" data-to="GRAN CAPITAN">65 - BENAVENTE-GRAN CAPITAN</option>
+                <option value="066" data-alias="66" data-from="CUATRO CAMINOS" data-to="FUENCARRAL">66 - CUATRO CAMINOS-FUENCARRAL</option>
+                <option value="067" data-alias="67" data-from="PLAZA CASTILLA" data-to="BARRIO PEÑAGRANDE">67 - PLAZA CASTILLA-BARRIO PEÑAGRANDE</option>
+                <option value="070" data-alias="70" data-from="PLAZA CASTILLA" data-to="ALSACIA">70 - PLAZA CASTILLA-ALSACIA</option>
+                <option value="071" data-alias="71" data-from="MANUEL BECERRA" data-to="PUERTA ARGANDA">71 - MANUEL BECERRA-PUERTA ARGANDA</option>
+                <option value="072" data-alias="72" data-from="DIEGO DE LEON" data-to="HORTALEZA">72 - DIEGO DE LEON-HORTALEZA</option>
+                <option value="073" data-alias="73" data-from="DIEGO DE LEON" data-to="FERIA DE MADRID">73 - DIEGO DE LEON-FERIA DE MADRID</option>
+                <option value="074" data-alias="74" data-from="PINTOR ROSALES" data-to="PARQUE AVENIDAS">74 - PINTOR ROSALES-PARQUE AVENIDAS</option>
+                <option value="075" data-alias="75" data-from="CALLAO" data-to="COLONIA MANZANARES">75 - CALLAO-COLONIA MANZANARES</option>
+                <option value="076" data-alias="76" data-from="PLAZA BEATA" data-to="VILLAVERDE ALTO">76 - PLAZA BEATA-VILLAVERDE ALTO</option>
+                <option value="077" data-alias="77" data-from="CIUDAD LINEAL" data-to="FIN DE SEMANA">77 - CIUDAD LINEAL-FIN DE SEMANA</option>
+                <option value="078" data-alias="78" data-from="EMBAJADORES" data-to="SAN FERMIN">78 - EMBAJADORES-SAN FERMIN</option>
+                <option value="079" data-alias="79" data-from="LEGAZPI" data-to="VILLAVERDE ALTO">79 - LEGAZPI-VILLAVERDE ALTO</option>
+                <option value="081" data-alias="81" data-from="OPORTO" data-to="HOSPITAL 12 OCTUBRE">81 - OPORTO-HOSPITAL 12 OCTUBRE</option>
+                <option value="082" data-alias="82" data-from="MONCLOA" data-to="PITIS">82 - MONCLOA-PITIS</option>
+                <option value="083" data-alias="83" data-from="MONCLOA" data-to="BARRIO DEL PILAR">83 - MONCLOA-BARRIO DEL PILAR</option>
+                <option value="085" data-alias="85" data-from="ESTACION DE ATOCHA" data-to="BUTARQUE">85 - ESTACION DE ATOCHA-BUTARQUE</option>
+                <option value="086" data-alias="86" data-from="ESTACION DE ATOCHA" data-to="VILLAVERDE ALTO">86 - ESTACION DE ATOCHA-VILLAVERDE ALTO</option>
+                <option value="087" data-alias="87" data-from="REPUBLICA DOMINICANA" data-to="LAS CARCAVAS">87 - REPUBLICA DOMINICANA-LAS CARCAVAS</option>
+                <option value="100" data-alias="100" data-from="MORATALAZ" data-to="VALDERRIVAS">100 - MORATALAZ-VALDERRIVAS</option>
+                <option value="101" data-alias="101" data-from="CANILLEJAS" data-to="BARAJAS">101 - CANILLEJAS-BARAJAS</option>
+                <option value="102" data-alias="102" data-from="ESTACION DE ATOCHA" data-to="ESTACION EL POZO">102 - ESTACION DE ATOCHA-ESTACION EL POZO</option>
+                <option value="103" data-alias="103" data-from="ESTACION EL POZO" data-to="ECOBULEVAR">103 - ESTACION EL POZO-ECOBULEVAR</option>
+                <option value="104" data-alias="104" data-from="CIUDAD LINEAL" data-to="MAR DE CRISTAL">104 - CIUDAD LINEAL-MAR DE CRISTAL</option>
+                <option value="105" data-alias="105" data-from="CIUDAD LINEAL" data-to="BARAJAS">105 - CIUDAD LINEAL-BARAJAS</option>
+                <option value="106" data-alias="106" data-from="MANUEL BECERRA" data-to="VICALVARO">106 - MANUEL BECERRA-VICALVARO</option>
+                <option value="107" data-alias="107" data-from="PLAZA CASTILLA" data-to="HORTALEZA">107 - PLAZA CASTILLA-HORTALEZA</option>
+                <option value="108" data-alias="108" data-from="OPORTO" data-to="CEMENTERIO CARABANCHEL">108 - OPORTO-CEMENTERIO CARABANCHEL</option>
+                <option value="109" data-alias="109" data-from="CIUDAD LINEAL" data-to="CASTILLO UCLES">109 - CIUDAD LINEAL-CASTILLO UCLES</option>
+                <option value="110" data-alias="110" data-from="MANUEL BECERRA" data-to="CEMENTERIO ALMUDENA">110 - MANUEL BECERRA-CEMENTERIO ALMUDENA</option>
+                <option value="111" data-alias="111" data-from="PUENTE VALLECAS" data-to="ENTREVIAS">111 - PUENTE VALLECAS-ENTREVIAS</option>
+                <option value="112" data-alias="112" data-from="MAR DE CRISTAL" data-to="BARRIO AEROPUERTO">112 - MAR DE CRISTAL-BARRIO AEROPUERTO</option>
+                <option value="113" data-alias="113" data-from="MENDEZ ALVARO" data-to="CIUDAD LINEAL">113 - MENDEZ ALVARO-CIUDAD LINEAL</option>
+                <option value="114" data-alias="114" data-from="AVENIDA AMERICA" data-to="BARRIO AEROPUERTO">114 - AVENIDA AMERICA-BARRIO AEROPUERTO</option>
+                <option value="115" data-alias="115" data-from="AVENIDA AMERICA" data-to="BARAJAS">115 - AVENIDA AMERICA-BARAJAS</option>
+                <option value="116" data-alias="116" data-from="EMBAJADORES" data-to="VILLAVERDE CRUCE">116 - EMBAJADORES-VILLAVERDE CRUCE</option>
+                <option value="118" data-alias="118" data-from="EMBAJADORES" data-to="LA PESETA">118 - EMBAJADORES-LA PESETA</option>
+                <option value="119" data-alias="119" data-from="ATOCHA" data-to="BARRIO GOYA">119 - ATOCHA-BARRIO GOYA</option>
+                <option value="120" data-alias="120" data-from="PLAZA LIMA" data-to="HORTALEZA">120 - PLAZA LIMA-HORTALEZA</option>
+                <option value="121" data-alias="121" data-from="CAMPAMENTO" data-to="HOSPITAL 12 OCTUBRE">121 - CAMPAMENTO-HOSPITAL 12 OCTUBRE</option>
+                <option value="122" data-alias="122" data-from="AVENIDA AMERICA" data-to="FERIA DE MADRID">122 - AVENIDA AMERICA-FERIA DE MADRID</option>
+                <option value="123" data-alias="123" data-from="LEGAZPI" data-to="BUTARQUE">123 - LEGAZPI-BUTARQUE</option>
+                <option value="124" data-alias="124" data-from="CUATRO CAMINOS" data-to="LACOMA">124 - CUATRO CAMINOS-LACOMA</option>
+                <option value="125" data-alias="125" data-from="MAR DE CRISTAL" data-to="HOSPITAL RAMON Y CAJAL">125 - MAR DE CRISTAL-HOSPITAL RAMON Y CAJAL</option>
+                <option value="126" data-alias="126" data-from="NUEVOS MINISTERIOS" data-to="BARRIO DEL PILAR">126 - NUEVOS MINISTERIOS-BARRIO DEL PILAR</option>
+                <option value="127" data-alias="127" data-from="CUATRO CAMINOS" data-to="CIUDAD PERIODISTAS">127 - CUATRO CAMINOS-CIUDAD PERIODISTAS</option>
+                <option value="128" data-alias="128" data-from="CUATRO CAMINOS" data-to="BARRIO DEL PILAR">128 - CUATRO CAMINOS-BARRIO DEL PILAR</option>
+                <option value="129" data-alias="129" data-from="PLAZA CASTILLA" data-to="MANOTERAS">129 - PLAZA CASTILLA-MANOTERAS</option>
+                <option value="130" data-alias="130" data-from="VILLAVERDE ALTO" data-to="VICALVARO">130 - VILLAVERDE ALTO-VICALVARO</option>
+                <option value="131" data-alias="131" data-from="CAMPAMENTO" data-to="VILLAVERDE ALTO">131 - CAMPAMENTO-VILLAVERDE ALTO</option>
+                <option value="132" data-alias="132" data-from="MONCLOA" data-to="HOSPITAL LA PAZ">132 - MONCLOA-HOSPITAL LA PAZ</option>
+                <option value="133" data-alias="133" data-from="CALLAO" data-to="MIRASIERRA">133 - CALLAO-MIRASIERRA</option>
+                <option value="134" data-alias="134" data-from="PLAZA CASTILLA" data-to="MONTECARMELO">134 - PLAZA CASTILLA-MONTECARMELO</option>
+                <option value="135" data-alias="135" data-from="PLAZA CASTILLA" data-to="HOSPITAL RAMON Y CAJAL">135 - PLAZA CASTILLA-HOSPITAL RAMON Y CAJAL</option>
+                <option value="136" data-alias="136" data-from="PACIFICO" data-to="MADRID SUR">136 - PACIFICO-MADRID SUR</option>
+                <option value="137" data-alias="137" data-from="PUERTA HIERRO" data-to="FUENCARRAL">137 - PUERTA HIERRO-FUENCARRAL</option>
+                <option value="138" data-alias="138" data-from="CRISTO REY" data-to="SAN IGNACIO">138 - CRISTO REY-SAN IGNACIO</option>
+                <option value="139" data-alias="139" data-from="DEHESA PRINCIPE" data-to="CARABANCHEL ALTO">139 - DEHESA PRINCIPE-CARABANCHEL ALTO</option>
+                <option value="140" data-alias="140" data-from="PAVONES" data-to="CANILLEJAS">140 - PAVONES-CANILLEJAS</option>
+                <option value="141" data-alias="141" data-from="ESTACION DE ATOCHA" data-to="BUENOS AIRES">141 - ESTACION DE ATOCHA-BUENOS AIRES</option>
+                <option value="142" data-alias="142" data-from="PAVONES" data-to="ENSANCHE VALLECAS">142 - PAVONES-ENSANCHE VALLECAS</option>
+                <option value="143" data-alias="143" data-from="MANUEL BECERRA" data-to="VILLA VALLECAS">143 - MANUEL BECERRA-VILLA VALLECAS</option>
+                <option value="144" data-alias="144" data-from="PAVONES" data-to="ENTREVIAS">144 - PAVONES-ENTREVIAS</option>
+                <option value="145" data-alias="145" data-from="CONDE DE CASAL" data-to="ENSANCHE VALLECAS">145 - CONDE DE CASAL-ENSANCHE VALLECAS</option>
+                <option value="146" data-alias="146" data-from="CALLAO" data-to="LOS MOLINOS">146 - CALLAO-LOS MOLINOS</option>
+                <option value="147" data-alias="147" data-from="CALLAO" data-to="BARRIO DEL PILAR">147 - CALLAO-BARRIO DEL PILAR</option>
+                <option value="148" data-alias="148" data-from="CALLAO" data-to="PUENTE VALLECAS">148 - CALLAO-PUENTE VALLECAS</option>
+                <option value="149" data-alias="149" data-from="TRIBUNAL" data-to="PLAZA CASTILLA">149 - TRIBUNAL-PLAZA CASTILLA</option>
+                <option value="150" data-alias="150" data-from="SOL SEVILLA" data-to="VIRGEN CORTIJO">150 - SOL SEVILLA-VIRGEN CORTIJO</option>
+                <option value="151" data-alias="151" data-from="CANILLEJAS" data-to="BARAJAS">151 - CANILLEJAS-BARAJAS</option>
+                <option value="152" data-alias="152" data-from="FELIPE II" data-to="MENDEZ ALVARO">152 - FELIPE II-MENDEZ ALVARO</option>
+                <option value="153" data-alias="153" data-from="LAS ROSAS" data-to="MAR DE CRISTAL">153 - LAS ROSAS-MAR DE CRISTAL</option>
+                <option value="155" data-alias="155" data-from="PLAZA ELIPTICA" data-to="ALUCHE">155 - PLAZA ELIPTICA-ALUCHE</option>
+                <option value="156" data-alias="156" data-from="MANUEL BECERRA" data-to="LEGAZPI">156 - MANUEL BECERRA-LEGAZPI</option>
+                <option value="159" data-alias="159" data-from="ALSACIA" data-to="EL CAÑAVERAL">159 - ALSACIA-EL CAÑAVERAL</option>
+                <option value="160" data-alias="160" data-from="MONCLOA" data-to="ARAVACA">160 - MONCLOA-ARAVACA</option>
+                <option value="161" data-alias="161" data-from="MONCLOA" data-to="ESTACION ARAVACA SUR">161 - MONCLOA-ESTACION ARAVACA SUR</option>
+                <option value="162" data-alias="162" data-from="MONCLOA" data-to="EL BARRIAL">162 - MONCLOA-EL BARRIAL</option>
+                <option value="163" data-alias="163" data-from="ESTACION DE ARAVACA" data-to="EL PLANTIO">163 - ESTACION DE ARAVACA-EL PLANTIO</option>
+                <option value="165" data-alias="165" data-from="ALSACIA" data-to="HOSPITAL RAMÓN Y CAJAL">165 - ALSACIA-HOSPITAL RAMÓN Y CAJAL</option>
+                <option value="166" data-alias="166" data-from="BARAJAS" data-to="HOSPITAL RAMÓN Y CAJAL">166 - BARAJAS-HOSPITAL RAMÓN Y CAJAL</option>
+                <option value="167" data-alias="167" data-from="ALSACIA" data-to="FIN DE SEMANA.">167 - ALSACIA-FIN DE SEMANA.</option>
+                <option value="170" data-alias="170" data-from="ARROYO DEL FRESNO" data-to="SANCHINARRO">170 - ARROYO DEL FRESNO-SANCHINARRO</option>
+                <option value="171" data-alias="171" data-from="MAR DE CRISTAL" data-to="VALDEBEBAS">171 - MAR DE CRISTAL-VALDEBEBAS</option>
+                <option value="172" data-alias="172" data-from="MAR DE CRISTAL" data-to="TELEFONICA">172 - MAR DE CRISTAL-TELEFONICA</option>
+                <option value="173" data-alias="173" data-from="PLAZA CASTILLA" data-to="SANCHINARRO">173 - PLAZA CASTILLA-SANCHINARRO</option>
+                <option value="174" data-alias="174" data-from="PLAZA CASTILLA" data-to="VALDEBEBAS">174 - PLAZA CASTILLA-VALDEBEBAS</option>
+                <option value="175" data-alias="175" data-from="PLAZA CASTILLA" data-to="LAS TABLAS NORTE">175 - PLAZA CASTILLA-LAS TABLAS NORTE</option>
+                <option value="176" data-alias="176" data-from="PLAZA CASTILLA" data-to="LAS TABLAS SUR">176 - PLAZA CASTILLA-LAS TABLAS SUR</option>
+                <option value="177" data-alias="177" data-from="PLAZA CASTILLA" data-to="MARQUES DE VIANA">177 - PLAZA CASTILLA-MARQUES DE VIANA</option>
+                <option value="178" data-alias="178" data-from="PLAZA CASTILLA" data-to="MONTECARMELO">178 - PLAZA CASTILLA-MONTECARMELO</option>
+                <option value="180" data-alias="180" data-from="LEGAZPI" data-to="CAJA MAGICA">180 - LEGAZPI-CAJA MAGICA</option>
+                <option value="200" data-alias="200" data-from="AVENIDA AMERICA" data-to="AEROPUERTO">200 - AVENIDA AMERICA-AEROPUERTO</option>
+                <option value="203" data-alias="203" data-from="ESTACION DE ATOCHA" data-to="AEROPUERTO">203 - ESTACION DE ATOCHA-AEROPUERTO</option>
+                <option value="210" data-alias="210" data-from="DIEGO DE LEON" data-to="LA ELIPA">210 - DIEGO DE LEON-LA ELIPA</option>
+                <option value="215" data-alias="215" data-from="FELIPE II" data-to="PARQUE ROMA">215 - FELIPE II-PARQUE ROMA</option>
+                <option value="247" data-alias="247" data-from="ATOCHA" data-to="SAN JOSE OBRERO">247 - ATOCHA-SAN JOSE OBRERO</option>
+                <option value="310" data-alias="310" data-from="PACIFICO" data-to="ESTACION EL POZO">310 - PACIFICO-ESTACION EL POZO</option>
+                <option value="372" data-alias="172SF" data-from="MAR DE CRISTAL" data-to="LAS TABLAS">172SF - MAR DE CRISTAL-LAS TABLAS</option>
+                <option value="093" data-alias="A" data-from="MONCLOA" data-to="SOMOSAGUAS">A - MONCLOA-SOMOSAGUAS</option>
+                <option value="068" data-alias="C1" data-from="CIRCULAR 1" data-to="CIRCULAR 1">C1 - CIRCULAR 1-CIRCULAR 1</option>
+                <option value="069" data-alias="C2" data-from="CIRCULAR 2" data-to="CIRCULAR 2">C2 - CIRCULAR 2-CIRCULAR 2</option>
+                <option value="363" data-alias="C03" data-from="PUERTA DE TOLEDO" data-to="ARGÜELLES">C03 - PUERTA DE TOLEDO-ARGÜELLES</option>
+                <option value="401" data-alias="E1" data-from="CIBELES" data-to="LA PESETA">E1 - CIBELES-LA PESETA</option>
+                <option value="402" data-alias="E2" data-from="FELIPE II" data-to="LAS ROSAS">E2 - FELIPE II-LAS ROSAS</option>
+                <option value="403" data-alias="E3" data-from="FELIPE II" data-to="VALDERRIVAS">E3 - FELIPE II-VALDERRIVAS</option>
+                <option value="404" data-alias="E4" data-from="FELIPE II" data-to="VALDEBERNARDO">E4 - FELIPE II-VALDEBERNARDO</option>
+                <option value="405" data-alias="E5" data-from="MANUEL BECERRA" data-to="EL CAÑAVERAL">E5 - MANUEL BECERRA-EL CAÑAVERAL</option>
+                <option value="090" data-alias="E" data-from="CONDE DE CASAL" data-to="SIERRA DE GUADALUPE">E - CONDE DE CASAL-SIERRA DE GUADALUPE</option>
+                <option value="091" data-alias="F" data-from="CUATRO CAMINOS" data-to="CIUDAD UNIVERSITARIA">F - CUATRO CAMINOS-CIUDAD UNIVERSITARIA</option>
+                <option value="092" data-alias="G" data-from="MONCLOA" data-to="CIUDAD UNIVERSITARIA">G - MONCLOA-CIUDAD UNIVERSITARIA</option>
+                <option value="481" data-alias="H1" data-from="SIERRA GUADALUPE" data-to="HOSPITAL INFANTA LEONOR">H1 - SIERRA GUADALUPE-HOSPITAL INFANTA LEONOR</option>
+                <option value="096" data-alias="H" data-from="ALUCHE" data-to="SOMOSAGUAS">H - ALUCHE-SOMOSAGUAS</option>
+                <option value="601" data-alias="M1" data-from="SOL SEVILLA" data-to="EMBAJADORES">M1 - SOL SEVILLA-EMBAJADORES</option>
+                <option value="501" data-alias="N1" data-from="CIBELES" data-to="SANCHINARRO">N1 - CIBELES-SANCHINARRO</option>
+                <option value="502" data-alias="N2" data-from="CIBELES" data-to="VALDEBEBAS">N2 - CIBELES-VALDEBEBAS</option>
+                <option value="503" data-alias="N3" data-from="CIBELES" data-to="CANILLAS">N3 - CIBELES-CANILLAS</option>
+                <option value="504" data-alias="N4" data-from="CIBELES" data-to="BARAJAS">N4 - CIBELES-BARAJAS</option>
+                <option value="505" data-alias="N5" data-from="CIBELES" data-to="FIN DE SEMANA">N5 - CIBELES-FIN DE SEMANA</option>
+                <option value="506" data-alias="N6" data-from="CIBELES" data-to="LAS ROSAS">N6 - CIBELES-LAS ROSAS</option>
+                <option value="507" data-alias="N7" data-from="CIBELES" data-to="VALDERRIVAS">N7 - CIBELES-VALDERRIVAS</option>
+                <option value="508" data-alias="N8" data-from="CIBELES" data-to="VALDEBERNARDO">N8 - CIBELES-VALDEBERNARDO</option>
+                <option value="509" data-alias="N9" data-from="CIBELES" data-to="ENSANCHE VALLECAS">N9 - CIBELES-ENSANCHE VALLECAS</option>
+                <option value="510" data-alias="N10" data-from="CIBELES" data-to="PALOMERAS">N10 - CIBELES-PALOMERAS</option>
+                <option value="511" data-alias="N11" data-from="CIBELES" data-to="MADRID SUR">N11 - CIBELES-MADRID SUR</option>
+                <option value="512" data-alias="N12" data-from="CIBELES" data-to="BUTARQUE">N12 - CIBELES-BUTARQUE</option>
+                <option value="513" data-alias="N13" data-from="CIBELES" data-to="SAN CRISTOBAL">N13 - CIBELES-SAN CRISTOBAL</option>
+                <option value="514" data-alias="N14" data-from="CIBELES" data-to="VILLAVERDE ALTO">N14 - CIBELES-VILLAVERDE ALTO</option>
+                <option value="515" data-alias="N15" data-from="CIBELES" data-to="ORCASUR">N15 - CIBELES-ORCASUR</option>
+                <option value="516" data-alias="N16" data-from="CIBELES" data-to="LA PESETA">N16 - CIBELES-LA PESETA</option>
+                <option value="517" data-alias="N17" data-from="CIBELES" data-to="CARABANCHEL ALTO">N17 - CIBELES-CARABANCHEL ALTO</option>
+                <option value="518" data-alias="N18" data-from="CIBELES" data-to="ALUCHE">N18 - CIBELES-ALUCHE</option>
+                <option value="519" data-alias="N19" data-from="CIBELES" data-to="SAN IGNACIO">N19 - CIBELES-SAN IGNACIO</option>
+                <option value="520" data-alias="N20" data-from="CIBELES" data-to="PITIS">N20 - CIBELES-PITIS</option>
+                <option value="521" data-alias="N21" data-from="CIBELES" data-to="ARROYO FRESNO">N21 - CIBELES-ARROYO FRESNO</option>
+                <option value="522" data-alias="N22" data-from="CIBELES" data-to="BARRIO DEL PILAR">N22 - CIBELES-BARRIO DEL PILAR</option>
+                <option value="523" data-alias="N23" data-from="CIBELES" data-to="MONTECARMELO">N23 - CIBELES-MONTECARMELO</option>
+                <option value="524" data-alias="N24" data-from="CIBELES" data-to="LAS TABLAS">N24 - CIBELES-LAS TABLAS</option>
+                <option value="525" data-alias="N25" data-from="ALONSO MARTINEZ" data-to="VILLA VALLECAS">N25 - ALONSO MARTINEZ-VILLA VALLECAS</option>
+                <option value="526" data-alias="N26" data-from="ALONSO MARTINEZ" data-to="ALUCHE">N26 - ALONSO MARTINEZ-ALUCHE</option>
+                <option value="527" data-alias="N27" data-from="CIBELES" data-to="AEROPUERTO">N27 - CIBELES-AEROPUERTO</option>
+                <option value="528" data-alias="N28" data-from="MONCLOA" data-to="ARAVACA">N28 - MONCLOA-ARAVACA</option>
+                <option value="702" data-alias="SE702" data-from="PLAZA ELIPTICA" data-to="CEMENTERIO SUR">SE702 - PLAZA ELIPTICA-CEMENTERIO SUR</option>
+                <option value="704" data-alias="SE704" data-from="PLAZA CASTILLA" data-to="CEMENTERIO FUENCARRAL">SE704 - PLAZA CASTILLA-CEMENTERIO FUENCARRAL</option>
+                <option value="709" data-alias="SE709" data-from="FERIA DE MADRID" data-to="HOSPITAL ENFERMERA ISABEL ZEND">SE709 - FERIA DE MADRID-HOSPITAL ENFERMERA ISABEL ZEND</option>
+                <option value="712" data-alias="SE712" data-from="PUERTA DEL SOL/SEVILLA" data-to="PUERTA DE TOLEDO">SE712 - PUERTA DEL SOL/SEVILLA-PUERTA DE TOLEDO</option>
+                <option value="718" data-alias="SE718" data-from="PUERTA ARGANDA" data-to="CAÑADA REAL">SE718 - PUERTA ARGANDA-CAÑADA REAL</option>
+                <option value="721" data-alias="SE721" data-from="CANILLEJAS" data-to="ESTADIO METROPOLITANO">SE721 - CANILLEJAS-ESTADIO METROPOLITANO</option>
+                <option value="727" data-alias="SE727" data-from="CENTRO DE SALUD VILLAAMIL" data-to="CENTRO DE SALUD DR. CASTROVIEJ">SE727 - CENTRO DE SALUD VILLAAMIL-CENTRO DE SALUD DR. CASTROVIEJ</option>
+                <option value="730" data-alias="SE730" data-from="PLAZA ELIPTICA" data-to="PINAR DE SAN JOSE">SE730 - PLAZA ELIPTICA-PINAR DE SAN JOSE</option>
+                <option value="744" data-alias="SE744" data-from="CANILLEJAS" data-to="REJAS">SE744 - CANILLEJAS-REJAS</option>
+                <option value="832" data-alias="SE832" data-from="PRINCIPE PIO" data-to="HOSPITAL FUNDACIÓN SAN JOSE">SE832 - PRINCIPE PIO-HOSPITAL FUNDACIÓN SAN JOSE</option>
+                <option value="451" data-alias="T11" data-from="MAR DE CRISTAL" data-to="CRISTALIA">T11 - MAR DE CRISTAL-CRISTALIA</option>
+                <option value="452" data-alias="T23" data-from="PUERTA ARGANDA" data-to="POLIGONO VICALVARO">T23 - PUERTA ARGANDA-POLIGONO VICALVARO</option>
+                <option value="454" data-alias="T31" data-from="ESTACION EL POZO" data-to="SIERRA GUADALUPE">T31 - ESTACION EL POZO-SIERRA GUADALUPE</option>
+                <option value="453" data-alias="T32" data-from="LEGAZPI" data-to="MERCAMADRID">T32 - LEGAZPI-MERCAMADRID</option>
+                <option value="456" data-alias="T41" data-from="VILLAVERDE ALTO" data-to="POLIGONO LA RESINA">T41 - VILLAVERDE ALTO-POLIGONO LA RESINA</option>
+                <option value="455" data-alias="T61" data-from="ESTACION FUENCARRAL" data-to="LAS TABLAS">T61 - ESTACION FUENCARRAL-LAS TABLAS</option>
+                <option value="457" data-alias="T62" data-from="PLAZA CASTILLA" data-to="CHAMARTIN">T62 - PLAZA CASTILLA-CHAMARTIN</option>
+                <option value="099" data-alias="U" data-from="AVENIDA SENECA" data-to="PARANINFO">U - AVENIDA SENECA-PARANINFO</option>
+            </select>
+            <input type="submit" value="Buscar" style="margin-left: 43%; margin-bottom: 2%; margin-top:8%">
+        </div>
+    </form>
+</body>
+</html>
