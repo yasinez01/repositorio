@@ -28,7 +28,11 @@ $losdatos=json_decode($response);
 #echo($losdatos->{'code'}); # ver variable 'code'
 $accessToken=$losdatos->{'data'}[0]->{'accessToken'}; 
 $_SESSION['accessToken']= $accessToken; 
+$_SESSion['logeado']=false;
 echo'<script type="text/javascript">
       alert("El accessToken es :'.$accessToken.' !!");
         window.location.href="web.html";
         </script>'; 
+
+
+////9330c8b2-addc-447a-96f0-d114cc3ffb99
