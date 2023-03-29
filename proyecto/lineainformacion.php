@@ -4,29 +4,45 @@ $curl = curl_init();
 $numerolinea = $_GET["linea"];
 $fecha1=$_GET["fechadetalle"];
 $fecha2=$_GET["fechageneral"];
-if(empty($numerolinea) && empty($fecha1) && empty($fecha2)){
+$isAllEmpty= empty($numerolinea) && empty($fecha1) && empty($fecha2); 
+$isNoneEmpty= !empty($numerolinea) && !empty($fecha1) && !empty($fecha2); 
+$emptyopcion1=empty($numerolinea) && empty($fecha1);
+$notallopcion1=empty($numerolinea) || empty($fecha1);
+$emptyopcion2= empty($fecha2);
+if($isAllEmpty) {
     echo'<script type="text/javascript">
       alert("Es obligatorio rellenar todos los campos de la opción que desea.");
         window.location.href="lineainformacion.html";
         </script>'; 
-}elseif(empty($fecha2)){
-    if(empty($numerolinea) || empty($fecha1)){
-        echo'<script type="text/javascript">
-      alert("Es obligatorio rellenar todos los campos de la opción que desea.");
-        window.location.href="lineainformacion.html";
-        </script>'; 
-    }else{
-        $url='https://openapi.emtmadrid.es/v1/transport/busemtmad/lines/'.$numerolinea.'/info/'.str_replace("-","",$fecha1).'/';
-    }
-}elseif(!empty($numerolinea) && !empty($fecha1) && !empty($fecha2)){
-    echo'<script type="text/javascript">
-      alert("Es obligatorio rellenar solo los campos de la opción que desea.");
-        window.location.href="lineainformacion.html";
-        </script>';
 }else{
-    $url='https://openapi.emtmadrid.es/v2/transport/busemtmad/lines/info/'.$fecha2.'/';
+    if($emptyopcion1){
+        $url='https://openapi.emtmadrid.es/v2/transport/busemtmad/lines/info/'.$fecha2.'/';
+    }else{
+        if (($isNoneEmpty)) {
+            echo'<script type="text/javascript">
+              alert("Es obligatorio rellenar solo los campos de una opción.");
+                window.location.href="lineainformacion.html";
+                </script>';
+        }else{
+            if(!$emptyopcion2){
+                echo'<script type="text/javascript">
+              alert("Es obligatorio rellenar solo los campos de una opción.");
+                window.location.href="lineainformacion.html";
+                </script>';
+            }else{
+                if($notallopcion1){
+                    echo'<script type="text/javascript">
+                alert("Es obligatorio rellenar todos los campos de la opción que desea.");
+                    window.location.href="lineainformacion.html";
+                    </script>';
+                }else{
+                    $url='https://openapi.emtmadrid.es/v1/transport/busemtmad/lines/'.$numerolinea.'/info/'.str_replace("-","",$fecha1).'/';  
+                } 
+            } 
+        }
+    }
 }
-if(empty($fecha2)){
+if($emptyopcion2){
     $url_calendario='https://openapi.emtmadrid.es/v1/transport/busemtmad/calendar/'.str_replace("-","",$fecha1).'/'.str_replace("-","",$fecha1).'/';
     curl_setopt_array($curl, array(
         CURLOPT_URL => $url_calendario,
@@ -45,7 +61,7 @@ if(empty($fecha2)){
              
         $response = curl_exec($curl);
         $datos=json_decode($response);
-        if(str_starts_with($datos->{'description'}, "NO data found")){
+        if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
             echo'<script type="text/javascript">
                 alert("NO data found, prueba con otros valores");
                 window.location.href="paradasalrededor.html";
@@ -71,13 +87,13 @@ CURLOPT_HTTPHEADER => array(
      
 $response = curl_exec($curl);
 $datos=json_decode($response);
-if(str_starts_with($datos->{'description'}, "NO data found")){
+if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
     echo'<script type="text/javascript">
         alert("NO data found, prueba con otros valores");
         window.location.href="paradasalrededor.html";
         </script>';
 }else{
-    if(empty($fecha2)){
+    if($emptyopcion2){
         for($i=0;$i<sizeof($datos->{'data'});$i++){
             echo "Fecha :".$datos->{'data'}[$i]->{'dateRef'}."<br>";
             echo "DESDE :".$datos->{'data'}[$i]->{'nameA'}."<br>";
@@ -106,5 +122,10 @@ if(str_starts_with($datos->{'description'}, "NO data found")){
             echo "Fecha Fin :".$datos->{'data'}[$i]->{'endDate'}."<br>";
         }
     }
+    echo"<a href='lineainformacion.html' style='text-decoration: none;
+        color: blue;
+        margin-left: 50%;
+        border: solid;
+        background: #6cc1e3;'>Volver</a>";
 }
 curl_close($curl);

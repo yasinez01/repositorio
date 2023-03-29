@@ -41,3 +41,10 @@ li{
     margin-left: 12%;
     background-color:white;
 }
+.Funcionalidades a{
+    border: solid;
+    background: #ececf6;
+    border-color: blue;
+    color: black;
+    text-decoration: none;
+}

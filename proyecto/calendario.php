@@ -27,7 +27,7 @@ curl_setopt_array($curl, array(
 ));
 $response = curl_exec($curl);
 $datos=json_decode($response);
-if(str_starts_with($datos->{'description'}, "NO data found")){
+if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
     echo'<script type="text/javascript">
         alert("NO data found, prueba con otros valores");
         window.location.href="calendario.html";
@@ -41,5 +41,10 @@ if(str_starts_with($datos->{'description'}, "NO data found")){
         elseif($datos->{'data'}[$i]->{'dayType'}=="SA") echo "tipo de día : Sábado <br>";
         else echo "tipo de día : Día festivo<br>";
     }
+    echo"<a href='calendario.html' style='text-decoration: none;
+        color: blue;
+        margin-left: 50%;
+        border: solid;
+        background: #6cc1e3;'>Volver</a>";
 }
 curl_close($curl);
