@@ -33,6 +33,7 @@
     $Coneccion= new Conexion("dbserver","grupo28","Fi0ci3eiy9","db_grupo28");
     $Coneccion->RegistrarUsuario($usuario,$pass);
     $Coneccion->cerrarSession();
+    header("location:web.php");
     //$conexion=mysqli_connect("dbserver","grupo28","Fi0ci3eiy9","db_grupo28");
     //$consulta="INSERT INTO db_grupo28.usuario VALUES('$usuario','$pass')";
     //$resultado=mysqli_query($conexion,$consulta);

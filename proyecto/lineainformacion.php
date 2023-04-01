@@ -1,9 +1,11 @@
 <?php
+require 'Consulta.php';
+error_reporting(0);
 session_start();
-$curl = curl_init();
 $numerolinea = $_GET["linea"];
 $fecha1=$_GET["fechadetalle"];
 $fecha2=$_GET["fechageneral"];
+$Consulta = new Consulta();
 $isAllEmpty= empty($numerolinea) && empty($fecha1) && empty($fecha2); 
 $isNoneEmpty= !empty($numerolinea) && !empty($fecha1) && !empty($fecha2); 
 $emptyopcion1=empty($numerolinea) && empty($fecha1);
@@ -44,23 +46,7 @@ if($isAllEmpty) {
 }
 if($emptyopcion2){
     $url_calendario='https://openapi.emtmadrid.es/v1/transport/busemtmad/calendar/'.str_replace("-","",$fecha1).'/'.str_replace("-","",$fecha1).'/';
-    curl_setopt_array($curl, array(
-        CURLOPT_URL => $url_calendario,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'GET',
-        CURLOPT_HTTPHEADER => array(
-            'accessToken: '. $_SESSION['accessToken'],//361279d0-1ec5-4111-b7f3-2b6ac6364879',
-            'Cookie: SERVERIDP=b45a524a27860afec772689f834014cb22bcb504'
-            ),
-        ));
-             
-        $response = curl_exec($curl);
-        $datos=json_decode($response);
+    $datos=$Consulta->realizarconsulta($url_calendario,'GET');
         if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
             echo'<script type="text/javascript">
                 alert("NO data found, prueba con otros valores");
@@ -70,23 +56,7 @@ if($emptyopcion2){
             $tipodia=$datos->{'data'}[0]->{'dayType'};
         }
 }
-curl_setopt_array($curl, array(
-CURLOPT_URL => $url,
-CURLOPT_RETURNTRANSFER => true,
-CURLOPT_ENCODING => '',
-CURLOPT_MAXREDIRS => 10,
-CURLOPT_TIMEOUT => 0,
-CURLOPT_FOLLOWLOCATION => true,
-CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-CURLOPT_CUSTOMREQUEST => 'GET',
-CURLOPT_HTTPHEADER => array(
-    'accessToken: '. $_SESSION['accessToken'],//361279d0-1ec5-4111-b7f3-2b6ac6364879',
-    'Cookie: SERVERIDP=b45a524a27860afec772689f834014cb22bcb504'
-    ),
-));
-     
-$response = curl_exec($curl);
-$datos=json_decode($response);
+$datos=$Consulta->realizarconsulta($url,'GET');
 if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
     echo'<script type="text/javascript">
         alert("NO data found, prueba con otros valores");
@@ -128,4 +98,3 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
         border: solid;
         background: #6cc1e3;'>Volver</a>";
 }
-curl_close($curl);

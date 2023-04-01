@@ -1,4 +1,7 @@
 
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,20 +37,26 @@
                 <span class="noVisible"><img src="img/instagram.png"></span></a>
             </li>
             <li id="login">
-                <img src="img/login.png"><br>
-                <a href="loginregister.html">Iniciar sesion</a>
+                 <?php
+                if(isset($_SESSION['usuarioregistrado'])){
+                    echo "<a id='usuarioregistrado'>Bievenido,".$_SESSION['nombreusuario']."</a><br><br>";
+                    echo "<a href='cerrarsession.php' id='session'>Cerrar Sessión</a>";
+                }else{
+                    echo "<img id='imagensession' src='img/login.png'><br>";
+                    echo "<a href='loginregister.html' id='session'>Iniciar sesión</a>";
+                }
+                ?>
             </li>
         </ul>
    </div>
     <header>
         <img src="img/logo.png" width="100" height="100"></img>
         <div class="Funcionalidades">
-            <ul>
-                <li><a href="paradasalrededor.html" target="iframe">Paradas_Alrededor</a></li>
-                <li><a href="calendario.html" target="iframe">Calendario</a></li>
-                <li><a href="lineainformacion.html" target="iframe">Informacion_De_Línea</a></li>
-                <li><a href="linea.html" target="iframe">Trayecto</a></li>
-            </ul>
+            <a href="paradasalrededor.html" target="iframe" id="paradas">Paradas_Alrededor</a>
+            <a href="calendario.html" target="iframe" id="calendario">Calendario</a>
+            <a href="lineainformacion.html" target="iframe" id="linea">Informacion_De_Línea</a>
+            <a href="linea.html" target="iframe" id="trayecto">Trayecto</a>
+
         </div>
     </header>
     <div >

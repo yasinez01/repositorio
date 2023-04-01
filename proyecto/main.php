@@ -31,7 +31,7 @@ $_SESSION['accessToken']= $accessToken;
 $_SESSion['logeado']=false;
 echo'<script type="text/javascript">
       alert("El accessToken es :'.$accessToken.' !!");
-        window.location.href="web.html";
+        window.location.href="web.php";
         </script>'; 
 
 
