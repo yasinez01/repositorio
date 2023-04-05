@@ -1,5 +1,7 @@
-h3{
-    border-bottom: solid red;
+*{
+    font-weight: bold;
+    color:rgb(97, 234, 47);
+}h3{
     width: 241px;
     margin-left: 300px;
 }

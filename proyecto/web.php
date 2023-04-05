@@ -50,11 +50,11 @@
         </ul>
    </div>
     <header>
-        <img src="img/logo.png" width="100" height="100"></img>
+        <img src="img/icono.png" width="100" height="100"></img>
         <div class="Funcionalidades">
-            <a href="paradasalrededor.html" target="iframe" id="paradas">Paradas_Alrededor</a>
+            <a href="paradasalrededor.html" target="iframe" id="paradas">Paradas Alrededor</a>
             <a href="calendario.html" target="iframe" id="calendario">Calendario</a>
-            <a href="lineainformacion.html" target="iframe" id="linea">Informacion_De_Línea</a>
+            <a href="lineainformacion.html" target="iframe" id="linea">Informacion De Línea</a>
             <a href="linea.html" target="iframe" id="trayecto">Trayecto</a>
 
         </div>

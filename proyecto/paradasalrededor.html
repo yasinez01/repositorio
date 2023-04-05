@@ -7,17 +7,17 @@
     <title>Paradas Alrededor</title>
     <link rel="stylesheet" href="paradasalrededor.css" > 
 </head>
-<body>
+<body style="background: linear-gradient(rgb(7, 89, 220),rgb(22, 5, 120));">
     <form action="paradasalrededor.php" method="get">
         <h3>PARADAS ALREDEDOR</h3>
-        SELECCIONA UNA OPCIÓN Y RELLENA SUS DATOS CORRESPONDIENTES.<br><br>
+        <p style="margin:0;margin-left:10%; color:rgb(255, 251, 0)">SELECCIONA UNA OPCIÓN Y RELLENA SUS DATOS CORRESPONDIENTES.</p><br><br>
         <div id="rellenardatos">
             OPCION 1:<br>
             Para conocer las paradas alrededor de una parada determinada, indica la parada y los metros alrededor de esta misma.
             <p id="informacion"> Rellene los siguientes datos:</p>
             <div id="datos">
-                Nº de la parada: <input type="number" name="parada"><br><br>
-                Metros alrededor de la parada: <input type="number" name="metros"><br><br>
+                Nº de la parada: <input type="number" name="parada" min=1><br><br>
+                Metros alrededor de la parada: <input type="number" name="metros" min=1><br><br>
             </div>
             OPCION 2:<br>
             Para conocer las paradas alrededor de un punto geográfico, indica la longitud, latitud y radio.
@@ -25,9 +25,9 @@
             <div id="datos">
                 Longitud: <input name="longitud"><br><br>
                 Latitud: <input name="latitud"><br><br>
-                Metros alrededor del punto: <input type="number" name="radio"><br><br>
+                Metros alrededor del punto: <input type="number" name="radio" min=1><br><br>
             </div>
-            <input type="submit" value="Buscar" style="margin-left: 43%; margin-bottom: 2%; margin-top:8%">
+            <input type="submit" value="Buscar" style="margin-left: 43%; margin-bottom: 2%; margin-top:8%; background-color: rgb(255, 0, 0);">
         </div>
     </form>
 </body>

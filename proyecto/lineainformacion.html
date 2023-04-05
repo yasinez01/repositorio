@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paradas Alrededor</title>
+    <title>Linea informacion</title>
     <link rel="stylesheet" href="lineainformacion.css" > 
 </head>
-<body>
+<body style="background: linear-gradient(rgb(7, 89, 220),rgb(22, 5, 120));">
     <form action="lineainformacion.php" method="get">
         <h3>LÍNEA DE INFORMACIÓN</h3>
         SELECCIONA UNA OPCIÓN Y RELLENA SUS DATOS CORRESPONDIENTES.<br><br>
@@ -16,7 +16,7 @@
             información sobre una línea(detalle):
             <p id="informacion"> Rellene los siguientes datos:</p>
             <div id="datos">
-                Nª de la línea: <input type="number" name="linea"><br><br>
+                Nª de la línea: <input type="number" name="linea" min=1><br><br>
                 Fecha: <input type="date" name="fechadetalle"><br><br>
             </div>
             OPCION 2:<br>
@@ -25,7 +25,7 @@
             <div id="datos">
                 Fecha: <input type="date" name="fechageneral"><br><br>
             </div>
-            <input type="submit" value="Buscar" style="margin-left: 43%; margin-bottom: 2%; margin-top:8%">
+            <input type="submit" value="Buscar" style="margin-left: 43%; margin-bottom: 2%; margin-top:8%;background-color: rgb(255, 0, 0);">
         </div>
         
     </form>
