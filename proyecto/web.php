@@ -39,7 +39,7 @@
             <li id="login">
                  <?php
                 if(isset($_SESSION['usuarioregistrado'])){
-                    echo "<a id='usuarioregistrado'>Bievenido,".$_SESSION['nombreusuario']."</a><br><br>";
+                    echo "<a id='usuarioregistrado'>".$_SESSION['nombreusuario']."</a><br><br>";
                     echo "<a href='cerrarsession.php' id='session'>Cerrar Sessión</a>";
                 }else{
                     echo "<img id='imagensession' src='img/login.png'><br>";

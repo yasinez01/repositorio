@@ -1,38 +1,80 @@
 *{
     margin:0;
     padding: 0;
-    background-color: darkviolet;
+    background-color: black;
 }
-h1{
-    text-align: center;
-    background-color: blue;
-    color: red;
-    text-decoration: underline;
-    border: solid;
-    padding-bottom: 40px;
-    padding-top:40px;
-    margin-bottom:15px;
+h1 {
+    font: 300 80px/1 courier;
+    white-space: nowrap;
+    color: rgb(236, 245, 235);
+    margin-left:30%;
+    margin-top:10%;
 }
-h3{
-    margin-left:30px;
-    margin-bottom:20px;
+span {
+    display: inline-block;
+    animation: stretch 2.5s cubic-bezier(0.4, 1.4, 0.75, 0.9) infinite;
+    transform-origin: center;
+  }
+  span:nth-of-type(1) {
+    animation-delay: 0.25s;
+  }
+  span:nth-of-type(2) {
+    animation-delay: 0.5s;
+  }
+  span:nth-of-type(3) {
+    animation-delay: 0.75s;
+  }
+  span:nth-of-type(4) {
+    animation-delay: 1s;
+  }
+  span:nth-of-type(5) {
+    animation-delay: 1.25s;
+  }
+  span:nth-of-type(6) {
+    animation-delay: 1.5s;
+  }
+  span:nth-of-type(7) {
+    animation-delay: 1.75s;
+  }
+  span:nth-of-type(8) {
+    animation-delay: 2s;
+  }
+  span:nth-of-type(9) {
+    animation-delay: 2.25s;
+  }
+  span:nth-of-type(10) {
+    animation-delay: 2.5s;
+  }
+  @keyframes stretch {
+    5% {
+      transform: scaleX(5000);
+      opacity: 0.1;
+   }
+    15% {
+      transform: scaleX(1);
+      opacity: 1;
+   }
 }
 a{
-    color:rgb(118, 177, 83);
+    color:rgb(33, 57, 176);
     font-size: 50px;
     margin-left:20px;
 }
 #front,#back{
-    color:yellow;   
-    background-color: blue;
+    color:white; 
+    background-color: rgb(33, 57, 176);
     position:fixed;
     border-style: solid;
-    width: 49%;
+    width: 44%;
     padding-top:7%;
     padding-bottom: 7%;
     margin-left: 0px;
     top: 50%;
     text-align: center;
+    margin-left:3%;
+    border-radius: 7%;
+    -webkit-box-shadow: -1px -1px 17px 13px #1b0fc8; 
+    box-shadow: -1px -1px 17px 13px #1b0fc8;
 }
 #back{
     margin-left: 50%;
