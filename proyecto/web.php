@@ -16,7 +16,7 @@
         <ul>
             <li>
                 <a aria-label="Enlace Twitter EMT. Nueva ventana." href="https://twitter.com/emtmadrid" target="_blank">
-                    <span class="noVisible"><img src="img/twitter.png"></span>
+                    <span class="noVisible"><img id="imagenTwitter" src="img/twitter.png"></span>
                 </a>
             </li>
             <li>
@@ -29,7 +29,7 @@
             </li>
             <li>
                 <a aria-label="Enlace rss EMT. Nueva ventana." href="https://feeds.feedburner.com/emtmadrid" target="_blank">
-                    <span class="noVisible"><img src="img/rss.png"></span></a>
+                    <span class="noVisible"><img id="imagenFeeds" src="img/rss.png"></span></a>
             </li>
             
             <li>
