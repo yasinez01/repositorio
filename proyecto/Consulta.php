@@ -19,10 +19,8 @@
                 ));
                      
                 $response = curl_exec($curl);
-                $datos=json_decode($response);
                 curl_close($curl);
-                return $datos;
+                return $response;
         }
 
     }
-    //1dcb6350-5015-4a6e-8eda-26f7966c136f 

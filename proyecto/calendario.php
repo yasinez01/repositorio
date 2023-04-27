@@ -13,7 +13,8 @@ if(empty($fechafin) || empty($fechaini)){
 }else{
     $url='https://openapi.emtmadrid.es/v1/transport/busemtmad/calendar/'.str_replace("-","",$fechaini).'/'.str_replace("-","",$fechafin).'/';
 }
-$datos=$Consulta->realizarconsulta($url,'GET');
+$respuesta=$Consulta->realizarconsulta($url,'GET');
+$datos = json_decode($respuesta);
 if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
     echo'<script type="text/javascript">
         alert("NO data found, prueba con otros valores");

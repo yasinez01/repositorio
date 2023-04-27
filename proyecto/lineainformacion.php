@@ -46,7 +46,8 @@ if($isAllEmpty) {
 }
 if($emptyopcion2){
     $url_calendario='https://openapi.emtmadrid.es/v1/transport/busemtmad/calendar/'.str_replace("-","",$fecha1).'/'.str_replace("-","",$fecha1).'/';
-    $datos=$Consulta->realizarconsulta($url_calendario,'GET');
+    $respuesta=$Consulta->realizarconsulta($url_calendario,'GET');
+    $datos = json_decode($respuesta);
         if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
             echo'<script type="text/javascript">
                 alert("NO data found, prueba con otros valores");
@@ -56,7 +57,8 @@ if($emptyopcion2){
             $tipodia=$datos->{'data'}[0]->{'dayType'};
         }
 }
-$datos=$Consulta->realizarconsulta($url,'GET');
+$respuesta=$Consulta->realizarconsulta($url,'GET');
+$datos = json_decode($respuesta);
 if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
     echo'<script type="text/javascript">
         alert("NO data found, prueba con otros valores");

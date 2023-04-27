@@ -14,7 +14,8 @@ if(empty($opcion)){
     $opcion = explode("-", $opcion);
     $url='https://openapi.emtmadrid.es/v1/transport/busemtmad/lines/'.str_replace(" ","",$opcion[0]).'/route/';
 }
-$datos=$Consulta->realizarconsulta($url,'GET');
+$respuesta=$Consulta->realizarconsulta($url,'GET');
+$datos = json_decode($respuesta);
 echo '<link rel="stylesheet" href="linea.css" >';
 if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
     echo'<script type="text/javascript">
@@ -38,7 +39,96 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
                 echo"      Distancia :".$datos->{'data'}->{'stops'}->{'toA'}->{'features'}[$i]->{'properties'}->{'distance'}."<br>";
             }
         echo "</div>";
-    echo "</div>";
+    echo "</div><br><br><br>";
+    if(isset($_SESSION['usuarioregistrado'])){
+    ?>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+            <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+            
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+            
+            <link rel="stylesheet" href="mapa.css">
+            <title>Paraderos Ruta</title>
+        </head>
+        <body>
+            <div class="container">
+                <form class="paraderos-data my-4">
+                    <select class="form-select" name="paraderos" id="paraderos">
+                        <option value="none" selected>Selecciona la linea</option>
+                        <option value="ruta1"> Ida</option>
+                        <option value="ruta2"> Vuelta</option>
+                    </select>
+                </form>
+            </div>
+            <div id="maparadas"></div>
+            <script type="text/javascript">
+                const mapa = document.getElementById('maparadas');
+                const map = L.map(mapa).setView([40.4165,-3.70256],13);
+                const rutaSelector = document.getElementById('paraderos');
+                const mapPath=document.getElementsByTagName('path');
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+                const getData = async () => {
+                    const dataParaderos = <?php echo $respuesta; ?>;
+                    const markerOptionsRuta1 =   customizedMarkerStyle('blue');
+                    const markerOptionsRuta2 = customizedMarkerStyle('red');
+                    paraderostoA = dataParaderos.data.stops.toA.features;
+                    paraderostoB= dataParaderos.data.stops.toB.features;
+                    function customizedMarkerStyle(fillColor) {
+                        return{
+                            radius :9,
+                            fillColor,
+                            color: 'black',
+                            weight: 1.2,
+                            opacity: 1,
+                            fillOpacity: 0.8
+                        }
+                    }
+                    function onEachFeature(feature, layer){
+                        if(feature.properties && feature.properties.stopName){
+                            layer.bindPopup(feature.properties.stopName)
+                        }
+                    }
+
+                    function showGeoJSon(ruta,marker){
+                        L.geoJSON(ruta,{
+                            pointToLayer : function(feature, latlng){
+                                return L.circleMarker(latlng, marker);
+                            },
+                            onEachFeature
+                        })
+                        .addTo(map)
+                    }
+                    rutaSelector.addEventListener('change', (e) =>{
+                        let rutaMostrada = [];
+                        if (e.target.value === 'ruta1'){
+                            Array.from(mapPath).forEach(path => path.remove())
+                            rutaMostrada = [paraderostoA,markerOptionsRuta1]
+                        }else if(e.target.value === 'ruta2'){
+                            Array.from(mapPath).forEach(path => path.remove())
+                            rutaMostrada = [paraderostoB,markerOptionsRuta2]
+                        }else{
+                            Array.from(mapPath).forEach(path => path.remove())
+                        }
+                        const  [linea,markerOptions]=rutaMostrada;
+                        showGeoJSon(linea,markerOptions);
+                    })
+                }
+                getData();
+            </script>
+        </body>
+        </html>
+    <?php
+    }
     echo"<a href='linea.html' style='text-decoration: none;
         color: blue;
         margin-left: 50%;
