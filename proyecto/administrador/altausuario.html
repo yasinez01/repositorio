@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alta Usuario</title>
+</head>
+<body>
+	<h1>Alta Usuario</h1>
+	<form action="index.php" method="post">
+		Usuario: <input type="text" name="usuario"><br>
+		Password: <input type="text" name="password"><br>
+        Administrador: 
+		<select name="administrador">
+			<option value="1">Es administrador</option>
+			<option value="0">No es administrador</option>
+		</select>
+		<input type="hidden" name="accion" value="altausuario">
+		<input type="submit"> <input type="reset">
+	</form>
+	<a href="index.php">Volver</a>
+</body>
+</html>

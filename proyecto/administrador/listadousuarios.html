@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Listado de usuarios</title>
+</head>
+<body>
+	<h1>Listado de usuarios</h1>
+	<table border=2>
+		<tr>
+			<th>Id</th>
+			<th>Usuario</th>
+			<th>Password</th>
+			<th>Admin</th>
+			<th>Modificación</th>
+			<th>Eliminación</th>
+		</tr>
+		##fila##
+		<tr>
+			<td>##idpersona##</td>
+			<td>##usuario##</td>
+			<td>##password##</td>
+			<td>##admin##</td>
+			<td><a href="index.php?accion=modificar&idpersona=##idpersona##">Modificar</a></td>
+			<td><a href="index.php?accion=eliminar&idpersona=##idpersona##">Eliminar</a></td>
+		</tr>
+		##fila##
+	</table>
+	<a href="index.php">Volver</a>
+</body>
+</html>

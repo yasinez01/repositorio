@@ -18,13 +18,22 @@
                 </script>';
             }
         }
-        function validarUsuario($usuario, $pass){
+        function validarUsuario($usuario, $pass){//aplicamos el mecanismo prepared statement para evitar vulnerabilidades -> CWE-89:Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
             $consulta=$this->conexion->prepare("SELECT * FROM db_grupo28.usuario WHERE usuario=? and password=?");
             $consulta->bind_param('ss',$usuario,$pass);
             $consulta->execute();
             while($consulta->fetch()){
                 return 1;
             }
+            return 0;
+        }
+        function validarUsuarioAdmin($usuario,$pass){
+            $consulta="SELECT administrador FROM db_grupo28.usuario where  usuario='$usuario' and password='$pass'";
+            $resultado=mysqli_query($this->conexion,$consulta);
+            while($dato = mysqli_fetch_array($resultado)){
+                return $dato['administrador'];
+            }
+            mysqli_free_result($resultado);
             return 0;
         }
         function RegistrarUsuario($usuario,$pass){
