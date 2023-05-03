@@ -50,7 +50,7 @@ table, td{
 .contenido{
     margin-left:25%;
 }
-#informacion_dias{
+#informacion_paradas{
     margin-bottom: 5%;
 }
 
@@ -101,6 +101,13 @@ table, td{
     margin-left: 50%;
     border: solid;
     background: #6cc1e3;
+
+    Esta es la parte del original:
+    text-decoration: none;
+        color: blue;
+        margin-left: 50%;
+        border: solid;
+        background: #6cc1e3;
     */
 }
 

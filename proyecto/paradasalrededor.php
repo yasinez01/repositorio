@@ -60,20 +60,38 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
         alert("NO data found, prueba con otros valores");
         window.location.href="paradasalrededor.html";
         </script>';
-}else{
-    for($i=0;$i<sizeof($datos->{'data'});$i++){
-        echo "stopId :".$datos->{'data'}[$i]->{'stopId'}."<br>";
-        echo "Cordenadas :".$datos->{'data'}[$i]->{'geometry'}->{"coordinates"}[0]." , ".$datos->{'data'}[$i]->{'geometry'}->{"coordinates"}[1]."<br>";
-        echo "nombre :".$datos->{'data'}[$i]->{'stopName'}."<br>";
-        echo "direccion :".$datos->{'data'}[$i]->{'address'}."<br>";
-        echo "lineas :"."<br>";
-        for($j=0;$j<sizeof($datos->{'data'}[$i]->{'lines'});$j++){
-            echo $datos->{'data'}[$i]->{'lines'}[$j]->{"line"}."<br>";
+}else{?>
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="datosparadasalrededor.css" > 
+    </head>
+    <body class="contenido">
+        <?php
+        echo "<div id=informacion_paradas>";
+        echo "<t1 id=tituloCalendario>Calendario</t1>";
+        for($i=0;$i<sizeof($datos->{'data'});$i++){
+            echo "<table class='fila'>";
+            echo "<tr><th colspan=3>Parada ".$datos->{'data'}[$i]->{'stopId'}."</th></tr>";
+            echo "<tr><td class=primeraColumna>Coordenada (Latitud)</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'geometry'}->{"coordinates"}[0]."</td></tr>";
+            echo "<tr><td class=primeraColumna>Coordenada (Longitud)</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'geometry'}->{"coordinates"}[1]."</td></tr>";
+            echo "<tr><td class=primeraColumna>Nombre</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'stopName'}."</td></tr>";
+            echo "<tr><td class=primeraColumna>Direccion</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'address'}."</td></tr>";
+            echo "<tr><td class=primeraColumna>Lineas</td><td class=segundaColumna>";
+            for($j=0;$j<sizeof($datos->{'data'}[$i]->{'lines'});$j++){
+                echo $datos->{'data'}[$i]->{'lines'}[$j]->{"line"};
+                if($j < sizeof($datos->{'data'}[$i]->{'lines'}) - 1){
+                    echo ", ";
+                }
+            }
+            echo "</td></tr></table>";
         }
-    }
-    echo"<a href='paradasalrededor.html' style='text-decoration: none;
-        color: blue;
-        margin-left: 50%;
-        border: solid;
-        background: #6cc1e3;'>Volver</a>";
+        echo "</div>";
+        echo"<a id='volver' href='paradasalrededor.html'>Volver</a>";
+        ?>
+    </body>
+<?php
 }
