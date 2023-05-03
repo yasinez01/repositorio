@@ -35,12 +35,12 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
         echo "<t1 id=tituloCalendario>Calendario</t1>";
         for($i=0;$i<sizeof($datos->{'data'});$i++){
             echo "<table class='fila'>";
-            echo "<tr><th colspan=3>Día: ".$datos->{'data'}[$i]->{'date'}."</th></tr>";
+            echo "<tr><th colspan=3>".$datos->{'data'}[$i]->{'date'}."</th></tr>";
             if($datos->{'data'}[$i]->{'strike'} == "N") echo "<tr><td class=primeraColumna>Huelga</td> <td class=segundaColumna>NO</td></tr>";
             else echo "<tr><td class=primeraColumna>Huelga</td> <td class=segundaColumna>SI</td></tr>";
             if($datos->{'data'}[$i]->{'dayType'}=="LA") echo "<tr><td class=primeraColumna>Tipo de día</td> <td class=segundaColumna>Día laborable</td></tr>";
             elseif($datos->{'data'}[$i]->{'dayType'}=="SA") echo "<tr><td class=primeraColumna>Tipo de día</td> <td class=segundaColumna>Sábado</td></tr>";
-            else echo "<tr><td class=primeraColumna>Tipo de día: </td> <td class=segundaColumna>Día festivo</td></tr>";
+            else echo "<tr><td class=primeraColumna>Tipo de día </td> <td class=segundaColumna>Día festivo</td></tr>";
             echo "</table>";
         }
         echo "</div>";
