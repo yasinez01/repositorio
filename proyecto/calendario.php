@@ -20,18 +20,32 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
         alert("NO data found, prueba con otros valores");
         window.location.href="calendario.html";
         </script>';
-}else{
-    for($i=0;$i<sizeof($datos->{'data'});$i++){
-        echo "dia :".$datos->{'data'}[$i]->{'date'}."<br>";
-        if($datos->{'data'}[$i]->{'strike'} == "N") echo "huelga : NO<br>";
-        else echo "huelga: SI<br>";
-        if($datos->{'data'}[$i]->{'dayType'}=="LA") echo "tipo de día : Día laborable <br>";
-        elseif($datos->{'data'}[$i]->{'dayType'}=="SA") echo "tipo de día : Sábado <br>";
-        else echo "tipo de día : Día festivo<br>";
-    }
-    echo"<a href='calendario.html' style='text-decoration: none;
-        color: blue;
-        margin-left: 50%;
-        border: solid;
-        background: #6cc1e3;'>Volver</a>";
+}else{?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="datoscalendario.css" > 
+    </head>
+    <body class="contenido">
+        <?php
+        echo "<div id=informacion_dias>";
+        echo "<t1 id=tituloCalendario>Calendario</t1>";
+        for($i=0;$i<sizeof($datos->{'data'});$i++){
+            echo "<table class='fila'>";
+            echo "<tr><th colspan=3>Día: ".$datos->{'data'}[$i]->{'date'}."</th></tr>";
+            if($datos->{'data'}[$i]->{'strike'} == "N") echo "<tr><td class=primeraColumna>Huelga</td> <td class=segundaColumna>NO</td></tr>";
+            else echo "<tr><td class=primeraColumna>Huelga</td> <td class=segundaColumna>SI</td></tr>";
+            if($datos->{'data'}[$i]->{'dayType'}=="LA") echo "<tr><td class=primeraColumna>Tipo de día</td> <td class=segundaColumna>Día laborable</td></tr>";
+            elseif($datos->{'data'}[$i]->{'dayType'}=="SA") echo "<tr><td class=primeraColumna>Tipo de día</td> <td class=segundaColumna>Sábado</td></tr>";
+            else echo "<tr><td class=primeraColumna>Tipo de día: </td> <td class=segundaColumna>Día festivo</td></tr>";
+            echo "</table>";
+        }
+        echo "</div>";
+        echo"<a id=volver href='calendario.html'>Volver</a>";
+        ?>
+    </body>
+<?php
 }

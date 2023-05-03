@@ -1,0 +1,80 @@
+body {
+    background-color: #000000;
+}
+
+#tituloCalendario {
+    color:white;
+    font-size: 40px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 1%;
+    /*font: 100px white italic;
+    font-style: italic;*/
+}
+
+#fila {
+    border: solid black;
+    border-radius: 10px;
+    background-color:  #0ffff8;
+}
+
+th {
+    background-color: #006898;
+    padding: 1%;
+}
+
+table, td{
+    color: rgb(189, 247, 255);
+    width: 35%;
+    border: 1.5px solid #0ffff8;
+    background-color: #00a9f0;
+    border-collapse: collapse;
+    /*border-color: aqua;*/
+    margin: 10px;
+  }
+
+  td {
+    color:#000000;
+}
+
+.primeraColumna {
+    width: 10%;
+    color:rgb(189, 247, 255);
+    background-color: #006898;
+}
+
+.segundaColumna {
+    text-align: left;
+}
+.contenido{
+    margin-left:20%;
+}
+#informacion_dias{
+    margin-bottom: 10%;
+}
+
+#volver {
+    text-decoration: none;
+    background-color: #00a9f0;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1.5px solid #0ffff8;
+    color: white;
+    font-style: bold;
+    margin-left: 30%;
+    margin-bottom: 20%;
+    /*
+    text-decoration: none;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: yellow;
+    color: blue;
+    margin-left: 50%;
+    border: solid;
+    background: #6cc1e3;
+    */
+}
+
