@@ -1,24 +1,67 @@
-*{
+body {
     font-weight: bold;
-    color:rgb(97, 234, 47);
+    color: white;
+    background-color: #002d51;
 }
-h3{
+
+h1{
     width: 130px;
     margin-left: 300px;
+    color: rgb(177, 246, 255);
 }
 #rellenardatos{
-    border-style: solid;
-    border-color: gray;
-    border-width: 1px;
-    margin-left:3%;
-    margin-right:3%;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 #informacion{
     background-color: rgb(88, 88, 208);
     color:azure;
-    margin-left: 10%; 
-    margin-right: 10%;
+    margin-right: 80%;
 }
-#datos{
-    margin-left: 10%;
+#datos, td{
+    width: 30%;
+    padding-top: 5%;
+    margin-bottom: 5%;
+}
+
+.primeraColumna{
+    width: 20%;
+}
+
+.introduccionFecha{
+    width: 100%;
+    background-color: rgb(24, 39, 96);
+    color: #00fbff;
+}
+
+#boton{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    margin-left: 25%;
+    margin-bottom: 20%;
+
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;	
+    text-decoration: none;
+    outline: none;
+    color: rgb(189, 247, 255);
+    background-color: #006898;
+
+    border: 1.5px solid #0ffff8;
+    border-radius: 15px;
+    box-shadow: 0 7px #00c8ff;
+}
+
+#boton:hover {
+    background-color: #002d51
+}
+
+#boton:active {
+  background-color: #002d51;
+  box-shadow: 0 5px #006898;
+  transform: translateY(4px);
 }

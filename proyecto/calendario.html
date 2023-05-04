@@ -9,15 +9,15 @@
 </head>
 <body style="background: linear-gradient(rgb(7, 89, 220),rgb(22, 5, 120));">
     <form action="calendario.php" method="get">
-        <h3>CALENDARIO</h3>
+        <h1>CALENDARIO</h1>
         <div id="rellenardatos">
             Para conocer el calendario de autobuses de transporte, indica la fecha inicial y final.
             <p id="informacion"> Rellene los siguientes datos:</p>
-            <div id="datos">
-                Fecha Inicio: <input type="date" name="fechaini"><br><br>
-                Fecha Fin: <input type="date" name="fechafin"><br><br>
-            </div>
-            <input type="submit" value="Buscar" style="margin-left: 43%; margin-bottom: 2%; margin-top:8%;background-color: rgb(255, 0, 0);">
+            <table id="datos">
+                <tr><td class="primeraColumna">Fecha Inicio:</td><td><input class="introduccionFecha" type="date" name="fechaini"></td></tr>
+                <tr><td class="primeraColumna">Fecha Fin: </td><td><input class="introduccionFecha" type="date" name="fechafin"></td></tr>
+            </table>
+            <input id="boton" type="submit" value="Buscar">
         </div>
     </form>
 </body>
