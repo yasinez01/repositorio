@@ -1,22 +1,13 @@
 body {
-    /*background-color: #000000;*/
-    /*background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);*/
     background: linear-gradient(rgb(2, 0, 48) 0%, rgb(4, 0, 84) 35%, rgba(9,9,121,1) 100%);
-    /*background: linear-gradient(rgba(9,9,121,1) 0%, rgb(4, 0, 84) 35%, rgba(2,0,36,1) 100%);*/
     margin-bottom: 4%;
 }
 
-#tituloCalendario {
+#tituloLineas {
     color:rgb(177, 246, 255);
     font-size: 40px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin-left: 20%;
-}
-
-#fila {
-    border: solid black;
-    border-radius: 10px;
-    background-color:  #0ffff8;
+    margin-left: 25%;
 }
 
 th {
@@ -30,16 +21,15 @@ table, td{
     border: 1.5px solid #0ffff8;
     background-color: #00a9f0;
     border-collapse: collapse;
-    /*border-color: aqua;*/
     margin: 20px;
   }
 
-  td {
+td {
     color:#000000;
 }
 
 .primeraColumna {
-    width: 25%;
+    width: 50%;
     color:rgb(189, 247, 255);
     background-color: #006898;
 }
@@ -47,26 +37,21 @@ table, td{
 .segundaColumna {
     text-align: left;
 }
+
+.columnaDireccion {
+    color:rgb(189, 247, 255);
+    background-color: #006898;
+}
+
 .contenido{
     margin-left:25%;
 }
-#informacion_dias{
+
+#informacion_lineas{
     margin-bottom: 5%;
 }
 
 #volver {
-    /*
-    text-decoration: none;
-    background-color: #00a9f0;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border: 1.5px solid #0ffff8;
-    color: rgb(189, 247, 255);
-    font-style: bold;
-    */
-
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 10px;
@@ -85,23 +70,7 @@ table, td{
 
     border: 1.5px solid #0ffff8;
     border-radius: 15px;
-    /*
-    border: none;
-    border-radius: 15px;
-    */
     box-shadow: 0 7px #00c8ff;
-    /*
-    text-decoration: none;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: yellow;
-    color: blue;
-    margin-left: 50%;
-    border: solid;
-    background: #6cc1e3;
-    */
 }
 
 #volver:hover {

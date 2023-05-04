@@ -64,39 +64,60 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
         alert("NO data found, prueba con otros valores");
         window.location.href="paradasalrededor.html";
         </script>';
-}else{
-    if($emptyopcion2){
-        for($i=0;$i<sizeof($datos->{'data'});$i++){
-            echo "Fecha :".$datos->{'data'}[$i]->{'dateRef'}."<br>";
-            echo "DESDE :".$datos->{'data'}[$i]->{'nameA'}."<br>";
-            echo "HASTA :".$datos->{'data'}[$i]->{'nameB'}."<br>";
-            for($j=0;$j<sizeof($datos->{'data'}[$i]->{'timeTable'});$j++)
-                if($datos->{'data'}[$i]->{'timeTable'}[$j]->{'idDayType'}==$tipodia){
-                    if($datos->{'data'}[$i]->{'timeTable'}[$j]->{'idDayType'}=="LA") echo "Tipo de día : Día laborable <br>";
-                    elseif($datos->{'data'}[$i]->{'timeTable'}[$j]->{'idDayType'}=="SA") echo "Tipo de día : Sábado <br>";
-                    else echo "Tipo de día : Día festivo<br>";
-                    echo "Direccion 1:"."<br>";
-                    echo "Hora Inicio :".$datos->{'data'}[$i]->{'timeTable'}[$j]->{'Direction1'}->{'StartTime'}."<br>";
-                    echo "Hora Fin :".$datos->{'data'}[$i]->{'timeTable'}[$j]->{'Direction1'}->{'StopTime'}."<br>";
-                    echo "Minima Frecuencia de minutos de espera :".$datos->{'data'}[$i]->{'timeTable'}[$j]->{'Direction1'}->{'MinimunFrequency'}."<br>";
-                    echo "Máxima Frecuencia de minutos de espera :".$datos->{'data'}[$i]->{'timeTable'}[$j]->{'Direction1'}->{'MaximumFrequency'}."<br>";
-                    echo "Direccion 2:"."<br>";
-                    echo "Hora Inicio :".$datos->{'data'}[$i]->{'timeTable'}[$j]->{'Direction2'}->{'StartTime'}."<br>";
-                    echo "Hora Fin :".$datos->{'data'}[$i]->{'timeTable'}[$j]->{'Direction2'}->{'StopTime'}."<br>";
-                    echo "Minima Frecuencia de minutos de espera :".$datos->{'data'}[$i]->{'timeTable'}[$j]->{'Direction2'}->{'MinimunFrequency'}."<br>";
-                    echo "Máxima Frecuencia de minutos de espera :".$datos->{'data'}[$i]->{'timeTable'}[$j]->{'Direction2'}->{'MaximumFrequency'}."<br>";
-                }
+}else{?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="datoslineainformacion.css" > 
+    </head>
+    <body class="contenido">
+        <?php
+        echo "<div id=informacion_lineas>";
+        echo "<t1 id=tituloLineas>Lineas</t1>";
+        if($emptyopcion2){
+            for($i=0;$i<sizeof($datos->{'data'});$i++){
+                echo "<table>";
+                echo "<tr><th colspan=3>".$datos->{'data'}[$i]->{'dateRef'}."</th></tr>";
+                echo "<tr><td class=primeraColumna>DESDE</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'nameA'}."</td></tr>";
+                echo "<tr><td class=primeraColumna>HASTA</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'nameB'}."</td></tr>";
+                for($j=0; $j<sizeof($datos->{'data'}[$i]->{'timeTable'}); $j++)
+                    if($datos->{'data'}[$i]->{'timeTable'}[$j]->{'idDayType'}==$tipodia){
+                        if($datos->{'data'}[$i]->{'timeTable'}[$j]->{'idDayType'}=="LA") echo "<tr><td class=primeraColumna>Tipo de día</td><td class=segundaColumna>Día laborable</td></tr>";
+                        elseif($datos->{'data'}[$i]->{'timeTable'}[$j]->{'idDayType'}=="SA") echo "<tr><td class=primeraColumna>Tipo de día</td><td class=segundaColumna>Sábado</td></tr>";
+                        else echo "<tr><td class=primeraColumna>Tipo de día</td><td class=segundaColumna>Día festivo</td></tr>";
+                        echo "<tr><td class=columnaDireccion colspan=3>Direccion 1:</td><tr>";
+                        echo "<tr><td class=primeraColumna>Hora Inicio</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'timeTable'}[$j]->{'Direction1'}->{'StartTime'}."</td><tr>";
+                        echo "<tr><td class=primeraColumna>Hora Fin</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'timeTable'}[$j]->{'Direction1'}->{'StopTime'}."</td><tr>";
+                        echo "<tr><td class=primeraColumna>Minima Frecuencia de minutos de espera</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'timeTable'}[$j]->{'Direction1'}->{'MinimunFrequency'}."</td><tr>";
+                        echo "<tr><td class=primeraColumna>Máxima Frecuencia de minutos de espera</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'timeTable'}[$j]->{'Direction1'}->{'MaximumFrequency'}."</td><tr>";
+                        echo "<tr><td class=columnaDireccion colspan=3>Direccion 2:"."</td><tr>";
+                        echo "<tr><td class=primeraColumna>Hora Inicio</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'timeTable'}[$j]->{'Direction2'}->{'StartTime'}."</td><tr>";
+                        echo "<tr><td class=primeraColumna>Hora Fin</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'timeTable'}[$j]->{'Direction2'}->{'StopTime'}."</td><tr>";
+                        echo "<tr><td class=primeraColumna>Minima Frecuencia de minutos de espera</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'timeTable'}[$j]->{'Direction2'}->{'MinimunFrequency'}."</td><tr>";
+                        echo "<tr><td class=primeraColumna>Máxima Frecuencia de minutos de espera</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'timeTable'}[$j]->{'Direction2'}->{'MaximumFrequency'}."</td><tr>";
+                        echo "</table>";
+                    }
+            }
+        }else{
+            for($i=0; $i<sizeof($datos->{'data'}); $i++){
+                echo "<table>";
+                echo "<tr><td class=primeraColumna>Fecha Ini</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'startDate'}."</td><tr>";
+                echo "<tr><td class=primeraColumna>Grupo</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'group'}."</td><tr>";
+                echo "<tr><td class=primeraColumna>Fecha Fin</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'endDate'}."</td><tr>";
+                echo "</table>";
+            }
         }
-    }else{
-        for($i=0;$i<sizeof($datos->{'data'});$i++){
-            echo "Fecha Ini :".$datos->{'data'}[$i]->{'startDate'}."<br>";
-            echo "Grupo :".$datos->{'data'}[$i]->{'group'}."<br>";
-            echo "Fecha Fin :".$datos->{'data'}[$i]->{'endDate'}."<br>";
-        }
-    }
-    echo"<a href='lineainformacion.html' style='text-decoration: none;
-        color: blue;
-        margin-left: 50%;
-        border: solid;
-        background: #6cc1e3;'>Volver</a>";
+        echo "</div>";
+        echo"<a id=volver href='lineainformacion.html'>Volver</a>";
+        ?>
+    </body>
+<?php
+
+
+
+
+
 }
