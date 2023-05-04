@@ -1,20 +1,24 @@
 *{
     font-weight: bold;
-    color:rgb(97, 234, 47);
+    color:rgb(47, 234, 47);
 }
+
 body{
     font-family: 'Noto Sans', sans-serif;
     box-sizing: border-box;
 }
+
 h3{
     width: 241px;
     margin-left: 300px;
 }
+
 #maparadas{
     height: 75vh;
     width:70%;
     margin: 0 auto;
 }
+
 #rellenardatos{
     border-style: solid;
     border-color: gray;
@@ -22,6 +26,7 @@ h3{
     margin-left:3%;
     margin-right:3%;
 }
+
 #frase{
     width: 50%;
     float: left;
@@ -33,24 +38,30 @@ h3{
     margin-left: 5%;
     padding: 10px 0;
 }
+
 #lineas{
     margin-left: 5%;
 }
+
 #informacion{
     background-color: rgb(88, 88, 208);
     color:azure;
     margin-left: 10%;
     margin-right: 10%;
 }
+
 #datos{
     margin-left: 10%;
 }
+
 #resultado{
     color: chocolate;
 }
+
 #contenedor{
     display: flex;
 }
+
 #deAaB,#deBaA{
     width:40%;
     margin:0px;
