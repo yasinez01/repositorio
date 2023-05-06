@@ -6,11 +6,11 @@ body {
     margin-bottom: 4%;
 }
 
-#tituloCalendario {
+#tituloParadasAlrededor {
     color:rgb(177, 246, 255);
     font-size: 40px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin-left: 20%;
+    margin-left: 3%;
 }
 
 #fila {

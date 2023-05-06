@@ -72,7 +72,7 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
     <body class="contenido">
         <?php
         echo "<div id=informacion_paradas>";
-        echo "<t1 id=tituloCalendario>Calendario</t1>";
+        echo "<t1 id=tituloParadasAlrededor>PARADAS ALREDEDOR</t1>";
         for($i=0;$i<sizeof($datos->{'data'});$i++){
             echo "<table class='fila'>";
             echo "<tr><th colspan=3>Parada ".$datos->{'data'}[$i]->{'stopId'}."</th></tr>";
@@ -89,9 +89,33 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
             }
             echo "</td></tr></table>";
         }
-        echo "</div>";
+        if(isset($_SESSION['usuarioregistrado'])){
+        ?>
+        <form action="csv.php" method="post" target="_blank">
+            <?php 
+                if(empty($longitud)){
+                    ?>
+                    <input type="hidden" name="seccion" value="paradasalrededorconnumero">
+                    <input type="hidden" name="numeroparada" value="<?php echo $numeroparada ?>">
+                    <input type="hidden" name="metros" value="<?php echo $metros ?>">
+                    <?php
+                }else{
+                    ?>
+                    <input type="hidden" name="seccion" value="paradasalrededorconlongitudylatitud">
+                    <input type="hidden" name="longitud" value="<?php echo $longitud ?>">
+                    <input type="hidden" name="latitud" value="<?php echo $latitud ?>">
+                    <input type="hidden" name="radio" value="<?php echo $radio ?>">
+                    <?php
+                }
+            ?>
+            <input type="submit" value="Click para generar CSV Ida">
+        </form>
+        <?php
+        }
+        echo "</div><br><br><br><br>";
         echo"<a id='volver' href='paradasalrededor.html'>Volver</a>";
         ?>
     </body>
+    </html>
 <?php
 }

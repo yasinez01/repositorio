@@ -12,7 +12,8 @@ if(empty($opcion)){
         </script>';
 }else{
     $opcion = explode("-", $opcion);
-    $url='https://openapi.emtmadrid.es/v1/transport/busemtmad/lines/'.str_replace(" ","",$opcion[0]).'/route/';
+    $numero_de_ruta = str_replace(" ","",$opcion[0]);
+    $url='https://openapi.emtmadrid.es/v1/transport/busemtmad/lines/'.$numero_de_ruta.'/route/';
 }
 $respuesta=$Consulta->realizarconsulta($url,'GET');
 $datos = json_decode($respuesta);
@@ -68,7 +69,19 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
                     </select>
                 </form>
             </div>
-            <div id="maparadas"></div>
+            <div id="maparadas"></div><br><br><br>
+            <div id="links">
+                <form action="csv.php" method="post" target="_blank">
+                    <input type="hidden" name="seccion" value="rutaIda">
+                    <input type="hidden" name="numero" value="<?php echo $numero_de_ruta ?>">
+                    <input type="submit" value="Click para generar CSV Ida">
+                </form>
+                <form action="csv.php" method="post" target="_blank">
+                    <input type="hidden" name="seccion" value="rutaVuelta">
+                    <input type="hidden" name="numero" value="<?php echo $numero_de_ruta ?>">
+                    <input type="submit" value="Click para generar CSV Vuelta">
+                </form>
+            </div>
             <script type="text/javascript">
                 const mapa = document.getElementById('maparadas');
                 const map = L.map(mapa).setView([40.4165,-3.70256],13);
@@ -124,6 +137,11 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
                     })
                 }
                 getData();
+            </script>
+            <script type="text/javascript">
+                function rutaIda(){
+                        <?php echo "Hola Mundo!!"?>
+                    }
             </script>
         </body>
         </html>

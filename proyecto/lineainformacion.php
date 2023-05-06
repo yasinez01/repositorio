@@ -81,6 +81,7 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
             for($i=0;$i<sizeof($datos->{'data'});$i++){
                 echo "<table>";
                 echo "<tr><th colspan=3>".$datos->{'data'}[$i]->{'dateRef'}."</th></tr>";
+                echo "<tr><td class=primeraColumna>Linea</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'line'}."</td></tr>";
                 echo "<tr><td class=primeraColumna>DESDE</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'nameA'}."</td></tr>";
                 echo "<tr><td class=primeraColumna>HASTA</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'nameB'}."</td></tr>";
                 for($j=0; $j<sizeof($datos->{'data'}[$i]->{'timeTable'}); $j++)
@@ -101,16 +102,35 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
                         echo "</table>";
                     }
             }
+            if(isset($_SESSION['usuarioregistrado'])){
+                ?>
+                <form action="csv.php" method="post" target="_blank">
+                    <input type="hidden" name="seccion" value="informacionlinea">
+                    <input type="hidden" name="linea" value="<?php echo $numerolinea ?>">
+                    <input type="hidden" name="fecha" value="<?php echo $fecha1 ?>">
+                    <input type="submit" value="Click para generar CSV">
+                </form>
+                <?php
+                }
         }else{
             for($i=0; $i<sizeof($datos->{'data'}); $i++){
                 echo "<table>";
-                echo "<tr><td class=primeraColumna>Fecha Ini</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'startDate'}."</td><tr>";
+                echo "<tr><td class=primeraColumna>Linea</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'line'}."</td><tr>";
                 echo "<tr><td class=primeraColumna>Grupo</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'group'}."</td><tr>";
-                echo "<tr><td class=primeraColumna>Fecha Fin</td><td class=segundaColumna>".$datos->{'data'}[$i]->{'endDate'}."</td><tr>";
                 echo "</table>";
             }
+            if(isset($_SESSION['usuarioregistrado'])){
+                ?>
+                <form action="csv.php" method="post" target="_blank">
+                    <input type="hidden" name="seccion" value="informacionlineas">
+                    <input type="hidden" name="fecha" value="<?php echo $fecha2 ?>">
+                    <input type="submit" value="Click para generar CSV">
+                </form>
+                <?php
+                }
         }
         echo "</div>";
+
         echo"<a id=volver href='lineainformacion.html'>Volver</a>";
         ?>
     </body>

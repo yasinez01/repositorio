@@ -34,8 +34,9 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
         echo "<div id=informacion_dias>";
         echo "<t1 id=tituloCalendario>Calendario</t1>";
         for($i=0;$i<sizeof($datos->{'data'});$i++){
+            $dia= explode(" ",$datos->{'data'}[$i]->{'date'});
             echo "<table class='fila'>";
-            echo "<tr><th colspan=3>".$datos->{'data'}[$i]->{'date'}."</th></tr>";
+            echo "<tr><th colspan=3>".$dia[0]."</th></tr>";
             if($datos->{'data'}[$i]->{'strike'} == "N") echo "<tr><td class=primeraColumna>Huelga</td> <td class=segundaColumna>NO</td></tr>";
             else echo "<tr><td class=primeraColumna>Huelga</td> <td class=segundaColumna>SI</td></tr>";
             if($datos->{'data'}[$i]->{'dayType'}=="LA") echo "<tr><td class=primeraColumna>Tipo de día</td> <td class=segundaColumna>Día laborable</td></tr>";
@@ -44,6 +45,16 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
             echo "</table>";
         }
         echo "</div>";
+        if(isset($_SESSION['usuarioregistrado'])){
+            ?>
+            <form action="csv.php" method="post" target="_blank">
+                <input type="hidden" name="seccion" value="calendario">
+                <input type="hidden" name="fechaini" value="<?php echo $fechaini ?>">
+                <input type="hidden" name="fechafin" value="<?php echo $fechafin ?>">
+                <input type="submit" value="Click para generar CSV Ida">
+            </form>
+            <?php
+            }
         echo"<a id=volver href='calendario.html'>Volver</a>";
         ?>
     </body>
