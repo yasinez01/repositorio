@@ -16,25 +16,25 @@
         <ul>
             <li>
                 <a aria-label="Enlace Twitter EMT. Nueva ventana." href="https://twitter.com/emtmadrid" target="_blank">
-                    <span class="noVisible"><img src="img/twitter.png"></span>
+                    <span class="noVisible"><img id="twitter" src="img/twitter.png"></span>
                 </a>
             </li>
             <li>
                 <a aria-label="Enlace Facebook EMT. Nueva ventana." href="https://www.facebook.com/emtmadrid" target="_blank">
-                    <span class="noVisible"><img src="img/facebook.png"></span></a>
+                    <span class="noVisible"><img id="facebook" src="img/facebook.png"></span></a>
             </li>
             <li>
                 <a aria-label="Enlace blog. Nueva ventana." href="https://blog.emtmadrid.es" target="_blank">
-                    <span class="noVisible"><img src="img/blog.png"></span></a>
+                    <span class="noVisible"><img id="blog" src="img/blog.png"></span></a>
             </li>
             <li>
                 <a aria-label="Enlace rss EMT. Nueva ventana." href="https://feeds.feedburner.com/emtmadrid" target="_blank">
-                    <span class="noVisible"><img src="img/rss.png"></span></a>
+                    <span class="noVisible"><img id="rss" src="img/rss.png"></span></a>
             </li>
             
             <li>
                 <a aria-label="Enlace Instagram. Nueva ventana." href="https://www.instagram.com/emtmadrid" target="_blank">
-                <span class="noVisible"><img src="img/instagram.png"></span></a>
+                <span class="noVisible"><img id="instagram" src="img/instagram.png"></span></a>
             </li>
             <li id="login">
                  <?php
@@ -50,7 +50,7 @@
         </ul>
    </div>
     <header>
-        <img src="img/icono.png" width="100" height="100"></img>
+        <img id="cabeceraEMTMadrid" src="img/icono.png" width="100" height="100"></img>
         <div class="Funcionalidades">
             <a href="paradasalrededor.html" target="iframe" id="paradas">Paradas Alrededor</a>
             <a href="calendario.html" target="iframe" id="calendario">Calendario</a>
