@@ -13,6 +13,12 @@
         for($i=0;$i<sizeof($data);$i++){
             fputcsv($csv_file, array($data[$i]->{'properties'}->{'stopName'}, $data[$i]->{'properties'}->{'stopNum'}, $data[$i]->{'geometry'}->{'coordinates'}[0], $data[$i]->{'geometry'}->{'coordinates'}[1]));
         }
+        fclose($csv_file);
+        $csv_filename = 'ruta_'.$numero.'_Ida.csv';
+        header('Content-Type: application/csv');
+        header('Content-Disposition: attachment; filename="'.$csv_filename.'"');
+        readfile($csv_filename);
+        exit();
     }else if($seccion =="rutaVuelta"){
         $numero = $_POST["numero"];
         $Consulta = new Consulta();
@@ -25,6 +31,12 @@
         for($i=0;$i<sizeof($data);$i++){
             fputcsv($csv_file, array($data[$i]->{'properties'}->{'stopName'}, $data[$i]->{'properties'}->{'stopNum'}, $data[$i]->{'geometry'}->{'coordinates'}[0], $data[$i]->{'geometry'}->{'coordinates'}[1]));
         }
+        fclose($csv_file);
+        $csv_filename = 'ruta_'.$numero.'_Vuelta.csv';
+        header('Content-Type: application/csv');
+        header('Content-Disposition: attachment; filename="'.$csv_filename.'"');
+        readfile($csv_filename);
+        exit();
     }else if($seccion == "paradasalrededorconnumero"){
         $numeroparada = $_POST["numeroparada"];
         $metros = $_POST["metros"];
@@ -45,6 +57,12 @@
             }
             fputcsv($csv_file, array($data[$i]->{'stopId'}, $data[$i]->{'stopName'}, $data[$i]->{'geometry'}->{"coordinates"}[0], $data[$i]->{'geometry'}->{'coordinates'}[1],$data[$i]->{'address'},$lineas));
         }
+        fclose($csv_file);
+        $csv_filename = 'paradanumero_'.$numeroparada.'_con_'.$metros.'_metros.csv';
+        header('Content-Type: application/csv');
+        header('Content-Disposition: attachment; filename="'.$csv_filename.'"');
+        readfile($csv_filename);
+        exit();
     }else if($seccion == "paradasalrededorconlongitudylatitud"){
         $longitud=$_POST["longitud"];
         $latitud=$_POST["latitud"];
@@ -66,6 +84,13 @@
             }
             fputcsv($csv_file, array($data[$i]->{'stopId'}, $data[$i]->{'stopName'}, $data[$i]->{'geometry'}->{"coordinates"}[0], $data[$i]->{'geometry'}->{'coordinates'}[1],$data[$i]->{'address'},$lineas));
         }
+        fclose($csv_file);
+        $csv_filename = 'parada_longitud_'.$longitud.'_latitud_'.$latitud.'_metros-'.$radio.'.csv';
+        header('Content-Type: application/csv');
+        header('Content-Disposition: attachment; filename="'.$csv_filename.'"');
+        readfile($csv_filename);
+        exit();
+        
     }else if($seccion== "calendario"){
         $fechaini=$_POST["fechaini"];
         $fechafin=$_POST["fechafin"];
@@ -73,7 +98,7 @@
         $url='https://openapi.emtmadrid.es/v1/transport/busemtmad/calendar/'.str_replace("-","",$fechaini).'/'.str_replace("-","",$fechafin).'/';
         $respuesta=$Consulta->realizarconsulta($url,'GET');
         $datos = json_decode($respuesta);
-        $csv_file = fopen('calendario_fechaini_'.$fechafin.'_fechafin_'.$fechafin.'.csv', 'w');
+        $csv_file = fopen('calendario_fechaini_'.$fechaini.'_fechafin_'.$fechafin.'.csv', 'w');
         fputcsv($csv_file, array( 'Fecha','¿HUELGA?', 'TIPO DE DÍA'));
         for($i=0;$i<sizeof($datos->{'data'});$i++){
             $dia= explode(" ",$datos->{'data'}[$i]->{'date'});
@@ -84,6 +109,12 @@
             elseif($datos->{'data'}[$i]->{'dayType'}=="SA") $tipodia= "Sábado";
             fputcsv($csv_file, array($dia[0],$huelga, $tipodia));
         }
+        fclose($csv_file);
+        $csv_filename = 'calendario_fechaini_'.$fechaini.'_fechafin_'.$fechafin.'.csv';
+        header('Content-Type: application/csv');
+        header('Content-Disposition: attachment; filename="'.$csv_filename.'"');
+        readfile($csv_filename);
+        exit();
     }else if($seccion == "informacionlineas"){
         $fecha = $_POST["fecha"];
         $Consulta = new Consulta();
@@ -93,13 +124,19 @@
         $csv_file = fopen('informacion_todas_lineas_fecha_'.$fecha.'.csv', 'w');
         fputcsv($csv_file, array( 'Linea','Grupo'));
         for($i=0; $i<sizeof($datos->{'data'}); $i++){
-            fputcsv($csv_file, array($datos->{'data'}[$i]->{'startDate'},$datos->{'data'}[$i]->{'group'}));
+            fputcsv($csv_file, array($datos->{'data'}[$i]->{'line'},$datos->{'data'}[$i]->{'group'}));
         }
+        fclose($csv_file);
+        $csv_filename = 'informacion_todas_lineas_fecha_'.$fecha.'.csv';
+        header('Content-Type: application/csv');
+        header('Content-Disposition: attachment; filename="'.$csv_filename.'"');
+        readfile($csv_filename);
+        exit();
     }else if($seccion == "informacionlinea"){
-        $numerolinea = $_GET["linea"];
-        $fecha=$_GET["fecha"];
+        $numerolinea = $_POST["linea"];
+        $fecha=$_POST["fecha"];
         $Consulta = new Consulta();
-        $url='https://openapi.emtmadrid.es/v1/transport/busemtmad/lines/'.$numerolinea.'/info/'.str_replace("-","",$fecha1).'/';  
+        $url='https://openapi.emtmadrid.es/v1/transport/busemtmad/lines/'.$numerolinea.'/info/'.str_replace("-","",$fecha).'/';  
         $respuesta=$Consulta->realizarconsulta($url,'GET');
         $datos = json_decode($respuesta);
         $csv_file = fopen('informacion_todas_linea_'.$numerolinea.'_fecha_'.$fecha.'.csv', 'w');
@@ -113,6 +150,12 @@
                 fputcsv($csv_file, array($data->{'line'},$data->{'nameA'},$data->{'nameB'},$dia,$data->{'timeTable'}[$j]->{'Direction1'}->{'StartTime'},$data->{'timeTable'}[$j]->{'Direction1'}->{'StopTime'},$data->{'timeTable'}[$j]->{'Direction1'}->{'MinimunFrequency'},$data->{'timeTable'}[$j]->{'Direction1'}->{'MaximumFrequency'},$data->{'timeTable'}[$j]->{'Direction2'}->{'StartTime'},$data->{'timeTable'}[$j]->{'Direction2'}->{'StopTime'},$data->{'timeTable'}[$j]->{'Direction2'}->{'MinimunFrequency'},$data->{'timeTable'}[$j]->{'Direction2'}->{'MaximumFrequency'}));
             }
         }
+        fclose($csv_file);
+        $csv_filename = 'informacion_todas_linea_'.$numerolinea.'_fecha_'.$fecha.'.csv';
+        header('Content-Type: application/csv');
+        header('Content-Disposition: attachment; filename="'.$csv_filename.'"');
+        readfile($csv_filename);
+        exit();
     }
     fclose($csv_file);
     echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";

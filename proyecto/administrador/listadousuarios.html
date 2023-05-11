@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  
 	<title>Listado de usuarios</title>
 </head>
 <body>
@@ -28,5 +29,65 @@
 		##fila##
 	</table>
 	<a href="index.php">Volver</a>
+	<button id="generateChartBtn">Generar gráfica</button>
+	<div>
+		<canvas id="myChart"></canvas>
+	</div>
+	<div id="chartBtnDiv"></div>
+	<script type="text/javascript">
+		const generateChartBtn = document.getElementById('generateChartBtn');
+		generateChartBtn.addEventListener('click', function() {
+			const xhr = new XMLHttpRequest();
+			xhr.open('GET', 'modelo.php?action=getAdminData', true);
+			xhr.onreadystatechange = function() {
+				if (this.readyState === 4 && this.status === 200) {
+					const data = JSON.parse(this.responseText);
+					const ctx = document.getElementById('myChart').getContext('2d');
+					const myChart = new Chart(ctx, {
+						type: 'pie',
+						data: {
+							labels: ['Administradores', 'No administradores'],
+							datasets: [{
+								data: [data.adminPercentage, data.nonAdminPercentage],
+								backgroundColor: [
+									'rgba(255, 99, 132, 0.7)',
+									'rgba(54, 162, 235, 0.7)',
+								],
+								borderColor: [
+									'rgba(255, 99, 132, 1)',
+									'rgba(54, 162, 235, 1)',
+								],
+								borderWidth: 1
+							}]
+						},
+						options: {
+							responsive: true,
+							maintainAspectRatio: false,
+							width: 100, // Ancho de la gráfica en píxeles
+        					height: 100, // Altura de la gráfica en píxeles
+							title: {
+								display: true,
+								text: 'Porcentaje de administradores y no administradores'
+							}
+						}
+					});
+				}
+			};
+			const chartBtnDiv = document.getElementById('chartBtnDiv');
+			const chartBtn = document.createElement('button');
+			chartBtn.innerText = 'Mi botón';
+			chartBtn.onclick = function() {
+			window.location.href = 'pdf.php';
+			};
+			const input = document.createElement('input');
+			input.type = 'hidden';
+			input.name = 'seccion';
+			input.value = 'rutaVuelta';
+			chartBtnDiv.appendChild(chartBtn);
+			chartBtnDiv.appendChild(input);
+			xhr.send();
+		});
+
+	</script>
 </body>
 </html>

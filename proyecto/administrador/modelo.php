@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	include "basededatos.php";
 	function mvalidaraltausuario($conexion) {
 		$user = $_POST['usuario'];
@@ -49,7 +50,28 @@
 			return -1;
 		}
 	}
-
+	// PHP
+  if (isset($_GET['action'])){
+    $mysqli = new mysqli("dbserver", "grupo28", "Fi0ci3eiy9", "db_grupo28");
+    $result = $mysqli->query("SELECT administrador FROM db_grupo28.usuario");
+    $adminCount = 0;
+    $totalCount = $result->num_rows;
+    while ($row = $result->fetch_assoc()) {
+        if ($row["administrador"] == 1) {
+            $adminCount++;
+        }
+    }
+    $adminPercentage = ($adminCount / $totalCount) * 100;
+    $nonAdminPercentage = 100 - $adminPercentage;
+    $data = array(
+        "adminPercentage" => $adminPercentage,
+        "nonAdminPercentage" => $nonAdminPercentage
+    );
+    $mysqli->close();
+    header('Content-Type: application/json');
+    echo json_encode($data);
+    exit;
+  }
 ?>
 
 
