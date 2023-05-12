@@ -18,7 +18,7 @@
 		}
 		vmostrarmensaje("Alta de persona", $mensaje);
 	}
-	function vmostrarlistadousuarios($resultado) {
+	function vmostrarlistadousuarios($resultado) { //vmostrarlistadousuarios(mlistadousuario($con));
 		$pagina = file_get_contents("listadousuarios.html");
 		if (!is_object($resultado)) {
 			vmostrarmensaje("Listado de personas", "Se ha producido un error en el sistema. Vuelva a intentarlo. Y si el problema persiste póngase en contacto con el administrador.");		

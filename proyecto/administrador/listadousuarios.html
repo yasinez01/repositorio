@@ -35,6 +35,7 @@
 	</div>
 	<div id="chartBtnDiv"></div>
 	<script type="text/javascript">
+		let buttonCreated = false;
 		const generateChartBtn = document.getElementById('generateChartBtn');
 		generateChartBtn.addEventListener('click', function() {
 			const xhr = new XMLHttpRequest();
@@ -64,30 +65,36 @@
 							responsive: true,
 							maintainAspectRatio: false,
 							width: 100, // Ancho de la gráfica en píxeles
-        					height: 100, // Altura de la gráfica en píxeles
+							height: 100, // Altura de la gráfica en píxeles
 							title: {
 								display: true,
 								text: 'Porcentaje de administradores y no administradores'
 							}
 						}
 					});
+					const chartBtnDiv = document.getElementById('chartBtnDiv');
+					if (!buttonCreated) {
+						const chartBtn = document.createElement('button');
+						chartBtn.innerText = 'Click para descargar pdf';
+						chartBtn.onclick = function() {
+							window.location.href = '../pdf.php';
+						};
+						const input = document.createElement('input');
+						input.type = 'hidden';
+						input.name = 'seccion';
+						input.value = 'rutaVuelta';
+						chartBtnDiv.appendChild(chartBtn);
+						chartBtnDiv.appendChild(input);
+						buttonCreated = true;
+					}
 				}
 			};
-			const chartBtnDiv = document.getElementById('chartBtnDiv');
-			const chartBtn = document.createElement('button');
-			chartBtn.innerText = 'Mi botón';
-			chartBtn.onclick = function() {
-			window.location.href = 'pdf.php';
-			};
-			const input = document.createElement('input');
-			input.type = 'hidden';
-			input.name = 'seccion';
-			input.value = 'rutaVuelta';
-			chartBtnDiv.appendChild(chartBtn);
-			chartBtnDiv.appendChild(input);
 			xhr.send();
 		});
-
+	
+		window.onload = function() {
+			buttonCreated = false;
+		}
 	</script>
 </body>
 </html>

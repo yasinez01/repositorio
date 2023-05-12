@@ -57,11 +57,15 @@ li{
     background: linear-gradient(rgb(70%, 0%, 30%),rgb(86, 7, 102));
 }
 #iframe{
-    height: 80vh;
+    height:80vh;
+
     width: 90%; /*70%*/
     margin-left: 5%; /*12%*/
+/*
+    width:70%;
+    margin-left: 12%;
+*/
     background: white;
-    border: 3px solid rgb(0, 174, 255);
 }
 .Funcionalidades{
     width:100%;
@@ -98,10 +102,12 @@ li{
 #imagensession{
     width:30%;
     height: 40%;
-    /*margin-bottom:1%;*/
-    margin-top: 13%;
+    margin-bottom:1%;
     margin-left:8%;
     padding-right: 10px;
+}
+#cabeceraEMTMadrid{
+    border: 1px solid black;
 }
 #usuarioregistrado{
     border: solid;
@@ -116,9 +122,6 @@ li{
     text-decoration: none;
     border-radius: 15px;
     margin-right:1%;
-}
-#cabeceraEMTMadrid{
-    border: 1px solid black;
 }
 #session{
     border:solid;

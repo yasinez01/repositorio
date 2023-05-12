@@ -139,7 +139,7 @@
         $url='https://openapi.emtmadrid.es/v1/transport/busemtmad/lines/'.$numerolinea.'/info/'.str_replace("-","",$fecha).'/';  
         $respuesta=$Consulta->realizarconsulta($url,'GET');
         $datos = json_decode($respuesta);
-        $csv_file = fopen('informacion_todas_linea_'.$numerolinea.'_fecha_'.$fecha.'.csv', 'w');
+        $csv_file = fopen('informacion_linea_'.$numerolinea.'_fecha_'.$fecha.'.csv', 'w');
         fputcsv($csv_file, array( 'Linea','Desde,Hasta,Tipo día,Hora Inicio 1,Hora fin 1, Minima frecuencia espera min 1 , Maxima frencuencia espera min 1,Hora Inicio 2,Hora fin 2, Minima frecuencia espera min 2, Maxima frencuencia espera min 2'));
         for($i=0;$i<sizeof($datos->{'data'});$i++){
             $data = $datos->{'data'}[$i];
@@ -151,7 +151,7 @@
             }
         }
         fclose($csv_file);
-        $csv_filename = 'informacion_todas_linea_'.$numerolinea.'_fecha_'.$fecha.'.csv';
+        $csv_filename = 'informacion_linea_'.$numerolinea.'_fecha_'.$fecha.'.csv';
         header('Content-Type: application/csv');
         header('Content-Disposition: attachment; filename="'.$csv_filename.'"');
         readfile($csv_filename);
