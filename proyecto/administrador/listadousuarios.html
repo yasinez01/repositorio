@@ -77,7 +77,8 @@
 						const chartBtn = document.createElement('button');
 						chartBtn.innerText = 'Click para descargar pdf';
 						chartBtn.onclick = function() {
-							window.location.href = '../pdf.php';
+							//window.location.href = '../pdf.php';
+							window.open('../pdf.php', '_blank');
 						};
 						const input = document.createElement('input');
 						input.type = 'hidden';
