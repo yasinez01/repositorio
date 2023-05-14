@@ -1,16 +1,9 @@
 body{
     font-family: 'Noto Sans', sans-serif;
     box-sizing: border-box;
-
     background: linear-gradient(rgb(2, 0, 48) 0%, rgb(4, 0, 84) 35%, rgba(9,9,121,1) 100%);
     margin-bottom: 4%;
     font-weight: bold;
-}
-
-#maparadas{
-    height: 75vh;
-    width:70%;
-    margin: 0 auto;
 }
 
 #deAaB,#deBaA{
@@ -19,14 +12,26 @@ body{
     padding:0px;
 }
 
+#deAaB {
+    margin-right: 10%;
+}
 
-
+#cabecera{
+    text-align: center;
+}
 
 #tituloTrayecto {
     color:rgb(177, 246, 255);
     font-size: 40px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin-left: 20%;
+}
+
+#cabeceraDeAaB, #cabeceraDeBaA{
+    text-align: center;
+}
+
+.trayecto{
+    color: white;
 }
 
 #fila {
@@ -38,9 +43,9 @@ body{
 th {
     background-color: #006898;
     padding: 1%;
+    text-align: center;
 }
 
-/*Contenedor de los trayectos*/
 #informacion_trayectos{
     margin-top: 3%;
     margin-left: 10%;
@@ -71,8 +76,14 @@ table, td{
 .segundaColumna {
     text-align: left;
 }
+
 .contenido{
     margin-left:25%;
+}
+
+#zonaboton {
+    display: flex;
+    justify-content: center;
 }
 
 #volver {
@@ -80,9 +91,6 @@ table, td{
     padding-right: 50px;
     padding-top: 10px;
     padding-bottom: 10px;
-
-    margin-left: 40%;
-    margin-bottom: 20%;
 
     font-size: 24px;
     cursor: pointer;
@@ -107,7 +115,34 @@ table, td{
   transform: translateY(4px);
 }
 
-.trayecto{
-    margin-left: 17%;
-    color: white;
+/*MAPA*/
+
+#paraderos {
+    font-style: bold;
+    color: rgb(189, 247, 255);
+    background-color: #0040d4;
+    border: 1.5px solid #0ffff8;
 }
+
+#maparadas {
+    height: 75vh;
+    width:70%;
+    margin: 0 auto;
+    border: 1.5px solid #0ffff8;
+}
+
+#linkscsv {
+    padding-left: 12%;
+    margin-bottom: 4%;
+}
+
+.botoncsv {
+    color: rgb(10, 67, 0);
+    background-color: #00d7ac;
+
+    border: 1.5px solid #0ffff8;
+    border-radius: 15px;
+    box-shadow: 0 7px #00ff80;
+    margin-bottom: 4%;
+}
+

@@ -41,15 +41,15 @@ $datos = json_decode($respuesta);
             alert("NO data found, prueba con otros valores");
             window.location.href="calendario.html";
             </script>';
-    } //HASTA AQUÍ EL PRIMER IF
-
-
-
-    else{
-        echo "<t1 id=tituloTrayecto>Trayecto y horarios: Ida - Vuelta</t1>";
+    }else{
+        echo "<div id='cabecera'>";
+        echo "<t1 id=tituloTrayecto>TRAYECTOS Y HORARIOS</t1>";
+        echo "</div>";
         echo "<div id='informacion_trayectos'>";
             echo "<div id='deAaB'>";
+                echo "<div id='cabeceraDeAaB'>";
                 echo "<t2 class=trayecto>".$datos->{'data'}->{'nameSectionA'}."-".$datos->{'data'}->{'nameSectionB'}." - IDA"."</t2>";
+                echo "</div>";
                 for($i=0;$i<sizeof($datos->{'data'}->{'stops'}->{'toB'}->{'features'});$i++){
                     echo "<table class='fila'>";
                     echo "<tr><th colspan=3>"."Parada nª".($i+1)."</th></tr>";
@@ -59,7 +59,9 @@ $datos = json_decode($respuesta);
                 }
                 echo "</div>";
                 echo "<div id='deBaA'>";
+                echo "<div id='cabeceraDeAaB'>";
                 echo "<t2 class=trayecto>".$datos->{'data'}->{'nameSectionB'}."-".$datos->{'data'}->{'nameSectionA'}." - VUELTA"."</t2>";
+                echo "</div>";
                 for($i=0;$i<sizeof($datos->{'data'}->{'stops'}->{'toA'}->{'features'});$i++){
                     echo "<table class='fila'>";
                     echo "<tr><th colspan=3>"."Parada nª".($i+1)."</th></tr>";
@@ -71,8 +73,6 @@ $datos = json_decode($respuesta);
         echo "</div><br><br><br>";
         if(isset($_SESSION['usuarioregistrado'])){
         ?>
-            <!-- AQUÍ EMPEZABA EL NUEVO PROGRAMA ANTES-->
-
             <div class="container">
                 <form class="paraderos-data my-4">
                     <select class="form-select" name="paraderos" id="paraderos">
@@ -83,16 +83,16 @@ $datos = json_decode($respuesta);
                 </form>
             </div>
             <div id="maparadas"></div><br><br><br>
-            <div id="links">
+            <div id="linkscsv">
                 <form action="csv.php" method="post" target="_blank">
                     <input type="hidden" name="seccion" value="rutaIda">
                     <input type="hidden" name="numero" value="<?php echo $numero_de_ruta ?>">
-                    <input type="submit" value="Click para generar CSV Ida">
+                    <input class="botoncsv" type="submit" value="Descargar CSV Ida">
                 </form>
                 <form action="csv.php" method="post" target="_blank">
                     <input type="hidden" name="seccion" value="rutaVuelta">
                     <input type="hidden" name="numero" value="<?php echo $numero_de_ruta ?>">
-                    <input type="submit" value="Click para generar CSV Vuelta">
+                    <input class="botoncsv" type="submit" value="Descargar CSV Vuelta">
                 </form>
             </div>
             <script type="text/javascript">
@@ -160,10 +160,9 @@ $datos = json_decode($respuesta);
                 
         }
     }
-
-
-    //BOTÓN DE VOLVER
+    echo "<div id=zonaboton>";
     echo "<a id=volver href='linea.html'>Volver</a>";
+    echo "</div>"
     ?>
     </body>
 </html>
