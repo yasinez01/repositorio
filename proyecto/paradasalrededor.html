@@ -7,27 +7,46 @@
     <title>Paradas Alrededor</title>
     <link rel="stylesheet" href="paradasalrededor.css" > 
 </head>
-<body style="background: linear-gradient(rgb(7, 89, 220),rgb(22, 5, 120));">
+<body>
     <form action="paradasalrededor.php" method="get">
-        <h3>PARADAS ALREDEDOR</h3>
-        <p style="margin:0;margin-left:10%; color:rgb(255, 251, 0)">SELECCIONA UNA OPCIÓN Y RELLENA SUS DATOS CORRESPONDIENTES.</p><br><br>
+        <h1 id="titulo">PARADAS ALREDEDOR</h1>
         <div id="rellenardatos">
-            OPCION 1:<br>
-            Para conocer las paradas alrededor de una parada determinada, indica la parada y los metros alrededor de esta misma.
-            <p id="informacion"> Rellene los siguientes datos:</p>
-            <div id="datos">
-                Nº de la parada: <input type="number" name="parada" min=1><br><br>
-                Metros alrededor de la parada: <input type="number" name="metros" min=1><br><br>
+            <p id="enunciado">SELECCIONA UNA OPCIÓN Y RELLENA SUS DATOS CORRESPONDIENTES.</p>
+            <div id="opcion1" class="opcion">
+                <t2 class="tituloopcion">OPCIÓN 1:</t2>
+                <p class="informacion">Para conocer las paradas alrededor de una parada determinada, indica la parada y los metros alrededor de esta misma.</p>
+                <table id="datos">
+                    <tr id="primeraFila">
+                        <td class="primeraColumna">Nº de la parada:</td>
+                        <td class="introduccionDatos"><input class="introDatos" type="number" name="parada" min=1></td>
+                    </tr>
+                    <tr id="segundaFila">
+                        <td class="primeraColumna">Metros alrededor de la parada:</td>
+                        <td class="introduccionDatos"><input class="introDatos" type="number" name="metros" min=1></td>
+                    </tr>
+                </table>
             </div>
-            OPCION 2:<br>
-            Para conocer las paradas alrededor de un punto geográfico, indica la longitud, latitud y radio.
-            <p id="informacion"> Rellene los siguientes datos:</p>
-            <div id="datos">
-                Longitud: <input name="longitud"><br><br>
-                Latitud: <input name="latitud"><br><br>
-                Metros alrededor del punto: <input type="number" name="radio" min=1><br><br>
+            <div id="opcion2" class="opcion">
+                <t2 class="tituloopcion">OPCIÓN 2:</t2>
+                <p class="informacion">Para conocer las paradas alrededor de un punto geográfico, indica la longitud, latitud y radio.</p>
+                <table id="datos">
+                    <tr id="primeraFila">
+                        <td class="primeraColumna">Longitud:</td>
+                        <td class="introduccionDatos"><input class="introDatos" name="longitud"></td>
+                    </tr>
+                    <tr id="segundaFila">
+                        <td class="primeraColumna">Latitud:</td>
+                        <td class="introduccionDatos"><input class="introDatos" name="latitud"></td>
+                    </tr>
+                    <tr id="terceraFila">
+                        <td class="primeraColumna">Metros alrededor del punto:</td>
+                        <td class="introduccionDatos"><input class="introDatos" type="number" name="radio" min=1></td>
+                    </tr>
+                </table>
             </div>
-            <input type="submit" value="Buscar" style="margin-left: 43%; margin-bottom: 2%; margin-top:8%; background-color: rgb(255, 0, 0);">
+        </div>
+        <div id="zonaboton">
+            <input id="boton" type="submit" value="Buscar">
         </div>
     </form>
 </body>

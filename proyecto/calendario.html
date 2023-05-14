@@ -7,12 +7,12 @@
     <title>Calendario</title>
     <link rel="stylesheet" href="calendario.css" > 
 </head>
-<body style="background: linear-gradient(rgb(7, 89, 220),rgb(22, 5, 120));">
+<body>
     <form action="calendario.php" method="get">
-        <h1>CALENDARIO</h1>
+        <h1 id="titulo">CALENDARIO</h1>
         <div id="rellenardatos">
-            Para conocer el calendario de autobuses de transporte, indica la fecha inicial y final.
-            <p id="informacion"> Rellene los siguientes datos:</p>
+            <p id="indicacion">Para conocer el calendario de autobuses de transporte, indica la fecha inicial y final.</p>
+            <p id="informacion">Rellene los siguientes datos:</p>
             <table id="datos">
                 <tr><td class="primeraColumna">Fecha Inicio:</td><td><input class="introduccionFecha" type="date" name="fechaini"></td></tr>
                 <tr><td class="primeraColumna">Fecha Fin: </td><td><input class="introduccionFecha" type="date" name="fechafin"></td></tr>

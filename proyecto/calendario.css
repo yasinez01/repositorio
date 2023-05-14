@@ -1,26 +1,30 @@
 body {
     font-weight: bold;
     color: white;
-    background-color: #002d51;
+    background: linear-gradient(rgb(7, 89, 220),rgb(22, 5, 120));
 }
 
-h1{
+#titulo{
     width: 130px;
     margin-left: 300px;
     color: rgb(177, 246, 255);
 }
+
 #rellenardatos{
+    margin-top: 4%;
     margin-left: 3%;
     margin-right: 3%;
 }
+
 #informacion{
     background-color: rgb(88, 88, 208);
     color:azure;
     margin-right: 80%;
 }
+
 #datos, td{
     width: 30%;
-    padding-top: 5%;
+    padding-top: 2%;
     margin-bottom: 5%;
 }
 
@@ -34,6 +38,11 @@ h1{
     color: #00fbff;
 }
 
+.introduccionFecha:hover {
+    background-color: rgb(0, 204, 255);
+    color:rgb(22, 5, 120);
+}
+
 #boton{
     padding-left: 50px;
     padding-right: 50px;
@@ -41,7 +50,7 @@ h1{
     padding-bottom: 10px;
 
     margin-left: 25%;
-    margin-bottom: 20%;
+    margin-bottom: 16.6%;
 
     font-size: 24px;
     cursor: pointer;
