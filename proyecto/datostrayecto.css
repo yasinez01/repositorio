@@ -18,6 +18,7 @@ body{
 
 #cabecera{
     text-align: center;
+    padding-top: 2%;
 }
 
 #tituloTrayecto {
@@ -59,7 +60,6 @@ table, td{
     border: 1.5px solid #0ffff8;
     background-color: #00a9f0;
     border-collapse: collapse;
-    /*border-color: aqua;*/
     margin: 20px;
   }
 
@@ -116,11 +116,10 @@ table, td{
 }
 
 /*MAPA*/
-
 #paraderos {
     font-style: bold;
-    color: rgb(189, 247, 255);
-    background-color: #0040d4;
+    color: #0ffff8;
+    background-color: #007bff;
     border: 1.5px solid #0ffff8;
 }
 
@@ -128,7 +127,7 @@ table, td{
     height: 75vh;
     width:70%;
     margin: 0 auto;
-    border: 1.5px solid #0ffff8;
+    border: 1.5px solid #00d9ff;
 }
 
 #linkscsv {
