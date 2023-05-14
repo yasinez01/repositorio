@@ -17,49 +17,62 @@ if(empty($opcion)){
 }
 $respuesta=$Consulta->realizarconsulta($url,'GET');
 $datos = json_decode($respuesta);
-echo '<link rel="stylesheet" href="linea.css" >';
-if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
-    echo'<script type="text/javascript">
-        alert("NO data found, prueba con otros valores");
-        window.location.href="calendario.html";
-        </script>';
-}else{
-    echo "<p>Trayecto y horarios: Ida - Vuelta</p>";
-    echo "<div id='contenedor'>";
-        echo "<div id='deAaB'>";
-            echo $datos->{'data'}->{'nameSectionA'}."-".$datos->{'data'}->{'nameSectionB'}."<br>";
-            for($i=0;$i<sizeof($datos->{'data'}->{'stops'}->{'toB'}->{'features'});$i++){
-                echo "Parada nª".($i+1)." :".$datos->{'data'}->{'stops'}->{'toB'}->{'features'}[$i]->{'properties'}->{'stopName'}."-".$datos->{'data'}->{'stops'}->{'toB'}->{'features'}[$i]->{'properties'}->{'stopNum'}."<br>";
-                echo"      Distancia :".$datos->{'data'}->{'stops'}->{'toB'}->{'features'}[$i]->{'properties'}->{'distance'}."<br>";
-            }
-            echo "</div>";
-            echo "<div id='deBaA'>";
-            echo $datos->{'data'}->{'nameSectionB'}."-".$datos->{'data'}->{'nameSectionA'}."<br>";
-            for($i=0;$i<sizeof($datos->{'data'}->{'stops'}->{'toA'}->{'features'});$i++){
-                echo "Parada nª".($i+1)." :".$datos->{'data'}->{'stops'}->{'toA'}->{'features'}[$i]->{'properties'}->{'stopName'}."-".$datos->{'data'}->{'stops'}->{'toA'}->{'features'}[$i]->{'properties'}->{'stopNum'}."<br>";
-                echo"      Distancia :".$datos->{'data'}->{'stops'}->{'toA'}->{'features'}[$i]->{'properties'}->{'distance'}."<br>";
-            }
-        echo "</div>";
-    echo "</div><br><br><br>";
-    if(isset($_SESSION['usuarioregistrado'])){
-    ?>
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-            <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-            
-            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+                
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
         <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
-            
-            <link rel="stylesheet" href="mapa.css">
-            <title>Paraderos Ruta</title>
-        </head>
-        <body>
+                
+        <link rel="stylesheet" href="datostrayecto.css">
+        <title>Trayectos</title>
+    </head>
+    <body>
+    <?php 
+    if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
+        echo'<script type="text/javascript">
+            alert("NO data found, prueba con otros valores");
+            window.location.href="calendario.html";
+            </script>';
+    } //HASTA AQUÍ EL PRIMER IF
+
+
+
+    else{
+        echo "<t1 id=tituloTrayecto>Trayecto y horarios: Ida - Vuelta</t1>";
+        echo "<div id='informacion_trayectos'>";
+            echo "<div id='deAaB'>";
+                echo "<t2 class=trayecto>".$datos->{'data'}->{'nameSectionA'}."-".$datos->{'data'}->{'nameSectionB'}." - IDA"."</t2>";
+                for($i=0;$i<sizeof($datos->{'data'}->{'stops'}->{'toB'}->{'features'});$i++){
+                    echo "<table class='fila'>";
+                    echo "<tr><th colspan=3>"."Parada nª".($i+1)."</th></tr>";
+                    echo "<tr><td class=primeraColumna>Nombre</td> <td class=segundaColumna>".$datos->{'data'}->{'stops'}->{'toB'}->{'features'}[$i]->{'properties'}->{'stopName'}."-".$datos->{'data'}->{'stops'}->{'toB'}->{'features'}[$i]->{'properties'}->{'stopNum'}."</td></tr>";
+                    echo "<tr><td class=primeraColumna>Distancia</td> <td class=segundaColumna>".$datos->{'data'}->{'stops'}->{'toB'}->{'features'}[$i]->{'properties'}->{'distance'}."</td></tr>";
+                    echo "</table>";
+                }
+                echo "</div>";
+                echo "<div id='deBaA'>";
+                echo "<t2 class=trayecto>".$datos->{'data'}->{'nameSectionB'}."-".$datos->{'data'}->{'nameSectionA'}." - VUELTA"."</t2>";
+                for($i=0;$i<sizeof($datos->{'data'}->{'stops'}->{'toA'}->{'features'});$i++){
+                    echo "<table class='fila'>";
+                    echo "<tr><th colspan=3>"."Parada nª".($i+1)."</th></tr>";
+                    echo "<tr><td class=primeraColumna>Nombre</td> <td class=segundaColumna>".$datos->{'data'}->{'stops'}->{'toA'}->{'features'}[$i]->{'properties'}->{'stopName'}."-".$datos->{'data'}->{'stops'}->{'toA'}->{'features'}[$i]->{'properties'}->{'stopNum'}."</td></tr>";
+                    echo "<tr><td class=primeraColumna>Distancia</td> <td class=segundaColumna>".$datos->{'data'}->{'stops'}->{'toA'}->{'features'}[$i]->{'properties'}->{'distance'}."</td></tr>";
+                    echo "</table>";
+                }
+            echo "</div>";
+        echo "</div><br><br><br>";
+        if(isset($_SESSION['usuarioregistrado'])){
+        ?>
+            <!-- AQUÍ EMPEZABA EL NUEVO PROGRAMA ANTES-->
+
             <div class="container">
                 <form class="paraderos-data my-4">
                     <select class="form-select" name="paraderos" id="paraderos">
@@ -143,13 +156,15 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
                         <?php echo "Hola Mundo!!"?>
                     }
             </script>
-        </body>
-        </html>
-    <?php
+            <?php
+                
+        }
     }
-    echo"<a href='linea.html' style='text-decoration: none;
-        color: blue;
-        margin-left: 50%;
-        border: solid;
-        background: #6cc1e3;'>Volver</a>";
-}
+
+
+    //BOTÓN DE VOLVER
+    echo "<a id=volver href='linea.html'>Volver</a>";
+    ?>
+    </body>
+</html>
+<?php

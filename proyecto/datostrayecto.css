@@ -1,0 +1,113 @@
+body{
+    font-family: 'Noto Sans', sans-serif;
+    box-sizing: border-box;
+
+    background: linear-gradient(rgb(2, 0, 48) 0%, rgb(4, 0, 84) 35%, rgba(9,9,121,1) 100%);
+    margin-bottom: 4%;
+    font-weight: bold;
+}
+
+#maparadas{
+    height: 75vh;
+    width:70%;
+    margin: 0 auto;
+}
+
+#deAaB,#deBaA{
+    width:40%;
+    margin:0px;
+    padding:0px;
+}
+
+
+
+
+#tituloTrayecto {
+    color:rgb(177, 246, 255);
+    font-size: 40px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 20%;
+}
+
+#fila {
+    border: 1,5px solid black;
+    border-radius: 10px;
+    background-color:  #0ffff8;
+}
+
+th {
+    background-color: #006898;
+    padding: 1%;
+}
+
+/*Contenedor de los trayectos*/
+#informacion_trayectos{
+    margin-top: 3%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+    display: flex;
+}
+
+table, td{
+    color: rgb(189, 247, 255);
+    width: 90%;
+    border: 1.5px solid #0ffff8;
+    background-color: #00a9f0;
+    border-collapse: collapse;
+    /*border-color: aqua;*/
+    margin: 20px;
+  }
+
+  td {
+    color:#000000;
+}
+
+.primeraColumna {
+    width: 25%;
+    color:rgb(189, 247, 255);
+    background-color: #006898;
+}
+
+.segundaColumna {
+    text-align: left;
+}
+.contenido{
+    margin-left:25%;
+}
+
+#volver {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    margin-left: 40%;
+    margin-bottom: 20%;
+
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;	
+    text-decoration: none;
+    outline: none;
+    color: rgb(189, 247, 255);
+    background-color: #006898;
+
+    border: 1.5px solid #0ffff8;
+    border-radius: 15px;
+    box-shadow: 0 7px #00c8ff;
+}
+
+#volver:hover {
+    background-color: #002d51
+}
+
+#volver:active {
+  background-color: #002d51;
+  box-shadow: 0 5px #006898;
+  transform: translateY(4px);
+}
+
+.trayecto{
+    margin-left: 17%;
+    color: white;
+}
