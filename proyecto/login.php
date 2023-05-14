@@ -21,6 +21,5 @@
         window.location.href="loginregister.html";
         </script>';
     }
-    //mysqli_close($conexion);
 ?>
  

@@ -19,7 +19,7 @@
             }
         }
         function validarUsuario($usuario, $pass){//aplicamos el mecanismo prepared statement para evitar vulnerabilidades -> CWE-89:Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
-            $consulta=$this->conexion->prepare("SELECT * FROM db_grupo28.usuario WHERE usuario=? and password=?");
+            $consulta=$this->conexion->prepare("SELECT * FROM db_grupo28.final_usuario WHERE usuario=? and password=?");
             $consulta->bind_param('ss',$usuario,$pass);
             $consulta->execute();
             while($consulta->fetch()){
@@ -28,7 +28,7 @@
             return 0;
         }
         function validarUsuarioAdmin($usuario,$pass){
-            $consulta="SELECT administrador FROM db_grupo28.usuario where  usuario='$usuario' and password='$pass'";
+            $consulta="SELECT administrador FROM db_grupo28.final_usuario where  usuario='$usuario' and password='$pass'";
             $resultado=mysqli_query($this->conexion,$consulta);
             while($dato = mysqli_fetch_array($resultado)){
                 return $dato['administrador'];
@@ -37,20 +37,20 @@
             return 0;
         }
         function RegistrarUsuario($usuario,$pass){
-            $consulta="INSERT INTO db_grupo28.usuario VALUES('$usuario','$pass')";
-            $resultado=mysqli_query($this->conexion,$consulta);
-            if($this->conexion->query($consulta)){
+            $stmt = $this->conexion->prepare("INSERT INTO db_grupo28.final_usuario (usuario, password, administrador) VALUES (?, ?, 0)");
+            $stmt->bind_param("ss", $usuario, $pass);
+            if($stmt->execute()){
                 echo'<script type="text/javascript">
-                alert("Inserccion completa con exito");
-                window.location.href="web.html";
+                    alert("Inserccion completa con exito");
+                    window.location.href="web.php";
                 </script>';
             }else{
                 echo'<script type="text/javascript">
-                alert("Inserccion fallida");
-                window.location.href="loginregister.html";
+                    alert("Inserccion fallida");
+                    window.location.href="loginregister.html";
                 </script>';
             }
-            mysqli_free_result($resultado);
+            $stmt->close();
         }
         function cerrarSession(){
             mysqli_close($this->conexion);

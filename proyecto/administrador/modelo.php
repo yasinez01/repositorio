@@ -5,7 +5,7 @@
 		$user = $_POST['usuario'];
 		$pass = $_POST['password'];
 		$admin = $_POST['administrador'];
-		$consulta = "insert into db_grupo28.usuario (usuario, password, administrador) values ('$user', '$pass', '$admin')";
+		$consulta = "insert into db_grupo28.final_usuario (usuario, password, administrador) values ('$user', '$pass', '$admin')";
 		if ($conexion->query($consulta)) {
 			return 1;
 		} else {
@@ -13,7 +13,7 @@
 		}
 	}
 	function mlistadousuario($con) {
-		$consulta = "Select * from db_grupo28.usuario";
+		$consulta = "Select * from db_grupo28.final_usuario";
 		if ($resultado = $con->query($consulta)) {
 			return $resultado;
 		} else {
@@ -22,7 +22,7 @@
 	}
 	function mdatosusuario($con) {
 		$idpersona = $_GET['idpersona'];
-		$consulta = "select * from db_grupo28.usuario where id = $idpersona";
+		$consulta = "select * from db_grupo28.final_usuario where id = $idpersona";
 		if ($resultado = $con->query($consulta)) {
 			return $resultado;
 		} else {
@@ -34,7 +34,7 @@
 		$pass = $_POST['password'];
 		$admin = $_POST['administrador'];
 		$id = $_POST['idusuario'];
-		$consulta = "update db_grupo28.usuario set usuario='$user', password='$pass', administrador='$admin' where id = $id";
+		$consulta = "update db_grupo28.final_usuario set usuario='$user', password='$pass', administrador='$admin' where id = $id";
 		if ($con->query($consulta)) {
 			return 1;
 		} else {
@@ -43,7 +43,7 @@
 	}
 	function meliminarusuario($con){
 		$idpersona = $_GET['idpersona'];
-		$consulta = "delete from db_grupo28.usuario where id = $idpersona";
+		$consulta = "delete from db_grupo28.final_usuario where id = $idpersona";
 		if ($con->query($consulta)) {
 			return 1;
 		} else {
@@ -53,7 +53,7 @@
 	// PHP
   if (isset($_GET['action'])){
     $mysqli = new mysqli("dbserver", "grupo28", "Fi0ci3eiy9", "db_grupo28");
-    $result = $mysqli->query("SELECT administrador FROM db_grupo28.usuario");
+    $result = $mysqli->query("SELECT administrador FROM db_grupo28.final_usuario");
     $adminCount = 0;
     $totalCount = $result->num_rows;
     while ($row = $result->fetch_assoc()) {
