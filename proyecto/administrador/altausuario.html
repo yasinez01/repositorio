@@ -4,20 +4,44 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Alta Usuario</title>
+	<link rel="stylesheet" href="altausuario.css">
 </head>
 <body>
-	<h1>Alta Usuario</h1>
-	<form action="index.php" method="post">
-		Usuario: <input type="text" name="usuario"><br>
-		Password: <input type="text" name="password"><br>
-        Administrador: 
-		<select name="administrador">
-			<option value="1">Es administrador</option>
-			<option value="0">No es administrador</option>
-		</select>
-		<input type="hidden" name="accion" value="altausuario">
-		<input type="submit"> <input type="reset">
-	</form>
-	<a href="index.php">Volver</a>
+	<div id="recuadro">
+		<div id="titulo">
+			<h1>Alta Usuario</h1>
+		</div>
+		<form action="index.php" method="post">
+			<div id="casillas">
+				<table id="introdatos">
+					<tr>
+						<td class="primeracolumna">Usuario:</td>
+						<td id="segundacolumna"><input class="introdatos" type="text" name="usuario"></td>
+					</tr>
+					<tr>
+						<td class="primeracolumna">Password:</td>
+						<td id="segundacolumna"><input class="introdatos" type="text" name="password"></td>
+					</tr>
+					<tr>
+						<td class="primeracolumna">Administrador:</td>
+						<td id="segundacolumna">
+							<select class="introdatos" name="administrador">
+								<option value="1">Es administrador</option>
+								<option value="0">No es administrador</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="botones">
+				<input class="boton" type="hidden" name="accion" value="altausuario">
+				<input class="boton" type="submit"> 
+				<input class="boton" type="reset">
+			</div>
+		</form>
+		<div id="volver">
+			<a class="botonvolver" href="index.php">Volver</a>
+		</div>
+	</div>
 </body>
 </html>
