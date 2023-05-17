@@ -2,6 +2,8 @@
 include 'fpdf.php';
 include "administrador/basededatos.php";
 
+define("ERROR_CARGA_DATOS", array([-1]));
+
 class PDF extends FPDF
 {
 
@@ -32,14 +34,14 @@ class PDF extends FPDF
     }
 
     function mostrarmensaje($titulo, $texto) {
-		$pagina = file_get_contents("mensaje.html");
+		$pagina = file_get_contents("administrador/mensaje.html");
 		$pagina = str_replace("##titulo##", $titulo, $pagina);
 		$pagina = str_replace("##texto##", $texto, $pagina);
 		echo $pagina;		
 	}
 
     function obtenerlistadousuarios($con) {
-		$consulta = "Select * from db_grupo28.usuario";
+		$consulta = "Select * from db_grupo28.final_usuario";
 		if ($resultado = $con->query($consulta)) {
 			return $resultado;
 		} else {
@@ -50,7 +52,8 @@ class PDF extends FPDF
     function cargadatosusuarios($resultado) { //vmostrarlistadousuarios(mlistadousuario($con));
 		//$pagina = file_get_contents("administrador/listadousuarios.html");
 		if (!is_object($resultado)) {
-			$this->mostrarmensaje("Listado de personas", "Se ha producido un error en el sistema. Vuelva a intentarlo. Y si el problema persiste póngase en contacto con el administrador.");		
+			$this->mostrarmensaje("Listado de personas", "Se ha producido un error en el sistema. Vuelva a intentarlo. Y si el problema persiste póngase en contacto con el administrador.");	
+            return array([-1]);	
 		} else {
             $data = array();
 			while ($datos = $resultado->fetch_assoc()) {
@@ -120,8 +123,10 @@ $header = array('ID', 'Usuario', 'Password', 'Administrador');
 // Carga de datos
 $data = $pdf->cargadatosusuarios($pdf->obtenerlistadousuarios($con));
 
-$pdf->SetFont('Arial','',14);
-$pdf->AddPage();
-$pdf->FancyTable($header, $data);
-$pdf->Output();
+if($data != ERROR_CARGA_DATOS) {
+    $pdf->SetFont('Arial','',14);
+    $pdf->AddPage();
+    $pdf->FancyTable($header, $data);
+    $pdf->Output();
+}
 ?>
