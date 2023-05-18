@@ -1,43 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  
+	<link rel="stylesheet" href="listadousuarios.css">
 	<title>Listado de usuarios</title>
 </head>
 <body>
-	<h1>Listado de usuarios</h1>
-	<table border=2>
+	<h1 id="titulo">Listado de usuarios</h1>
+	<table id="tablausuarios" border=2>
 		<tr>
-			<th>Id</th>
-			<th>Usuario</th>
-			<th>Password</th>
-			<th>Admin</th>
-			<th>Modificación</th>
-			<th>Eliminación</th>
+			<th class="columna1">Id</th>
+			<th class="columna2">Usuario</th>
+			<th class="columna3">Password</th>
+			<th class="columna4">Admin</th>
+			<th class="columna5">Modificación</th>
+			<th class="columna6">Eliminación</th>
 		</tr>
 		##fila##
 		<tr>
-			<td>##idpersona##</td>
-			<td>##usuario##</td>
-			<td>##password##</td>
-			<td>##admin##</td>
-			<td><a href="index.php?accion=modificar&idpersona=##idpersona##">Modificar</a></td>
-			<td><a href="index.php?accion=eliminar&idpersona=##idpersona##">Eliminar</a></td>
+			<td class="columna1">##idpersona##</td>
+			<td class="columna2">##usuario##</td>
+			<td class="columna3">##password##</td>
+			<td class="columna4">##admin##</td>
+			<td class="columna5" id="modificar"><a class="botonmodificar" href="index.php?accion=modificar&idpersona=##idpersona##">Modificar</a></td>
+			<td class="columna6" id="eliminar"><a class="botoneliminar" href="index.php?accion=eliminar&idpersona=##idpersona##">Eliminar</a></td>
 		</tr>
 		##fila##
 	</table>
-	<a href="index.php">Volver</a>
-	<button id="generateChartBtn">Generar gráfica</button>
-	<div>
+	<div id="botones">
+		<a id="volver" href="index.php">Volver</a>
+		<button class="boton" id="generateChartBtn">Generar gráfica</button>	
+	</div>
+	<!--
+	<h2 id="titulografica">Gráfica del porcentaje de administradores</h2>
+	-->
+	<div id="zonatitulografico"></div>
+	<div id="zonagrafico">
 		<canvas id="myChart"></canvas>
 	</div>
 	<div id="chartBtnDiv"></div>
 	<script type="text/javascript">
 		let buttonCreated = false;
+		//Creamos título del gráfico:
+		const divtitulografico = document.getElementById('zonatitulografico');
 		const generateChartBtn = document.getElementById('generateChartBtn');
 		generateChartBtn.addEventListener('click', function() {
+			//Creamos titulo del grafico:
+			const titulografico = document.createElement('h2');
+			titulografico.innerText = 'Porcentaje de administradores y no administradores';
+			titulografico.id = "titulografico";
+			divtitulografico.appendChild(titulografico);
+
+			//Creamos grafico:
 			const xhr = new XMLHttpRequest();
 			xhr.open('GET', 'modelo.php?action=getAdminData', true);
 			xhr.onreadystatechange = function() {
@@ -45,6 +61,10 @@
 					const data = JSON.parse(this.responseText);
 					const ctx = document.getElementById('myChart').getContext('2d');
 					const myChart = new Chart(ctx, {
+						title: {
+							display: true,
+							text: 'Porcentaje de administradores y no administradores'
+						},
 						type: 'pie',
 						data: {
 							labels: ['Administradores', 'No administradores'],
@@ -65,19 +85,20 @@
 							responsive: true,
 							maintainAspectRatio: false,
 							width: 100, // Ancho de la gráfica en píxeles
-							height: 100, // Altura de la gráfica en píxeles
-							title: {
+							height: 100 // Altura de la gráfica en píxeles
+							/*,title: {
 								display: true,
 								text: 'Porcentaje de administradores y no administradores'
-							}
+							}*/
 						}
 					});
 					const chartBtnDiv = document.getElementById('chartBtnDiv');
 					if (!buttonCreated) {
 						const chartBtn = document.createElement('button');
-						chartBtn.innerText = 'Click para descargar pdf';
+						chartBtn.innerText = 'Descargar PDF';
+						chartBtn.id = "descargarpdf";
+						chartBtn.className = 'boton';
 						chartBtn.onclick = function() {
-							//window.location.href = '../pdf.php';
 							window.open('../pdf.php', '_blank');
 						};
 						const input = document.createElement('input');

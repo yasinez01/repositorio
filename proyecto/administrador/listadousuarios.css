@@ -1,0 +1,210 @@
+body{
+    background-color: rgb(23, 23, 23);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#titulo {
+    width: 100%;
+    color:rgb(0, 200, 255);
+    text-align: center;
+}
+
+
+/*Tabla de Usuarios*/
+
+#tablausuarios, td {
+    width: 75%;
+    color: white;
+    background-color: rgb(58, 58, 58);
+    border: 3px solid rgb(0, 200, 255);
+
+    border-collapse: collapse;
+}
+
+th {
+    background-color: rgb(0, 29, 92);
+    border: 3px solid rgb(0, 200, 255);
+    color: white;
+}
+
+tr {
+    height: 5%;
+}
+
+.columna1 {
+    width: 10%;
+}
+
+.columna2 {
+    width: 20%;
+}
+
+.columna3 {
+    width: 20%;
+}
+
+.columna4 {
+    width: 20%;
+}
+
+.columnasModificarEliminar {
+    width: 15%;
+}
+
+.columna5 {
+    width: 15%;
+}
+
+.columna6 {
+    width: 15%;
+}
+
+.botonmodificar {
+    color: rgb(200, 255, 189);
+    text-decoration: none;
+    text-align: center;
+}
+
+.botoneliminar {
+    color: rgb(255, 176, 176);
+    text-decoration: none;
+    text-align: center;
+}
+
+#modificar {
+    text-align: center;
+    background-color: #005a2d;
+    border: 3px solid rgb(0, 200, 255);
+}
+
+#eliminar {
+    text-align: center;
+    background-color: rgb(83, 0, 0);
+    border: 3px solid rgb(0, 200, 255);
+}
+
+#modificar:hover {
+    background-color: rgb(3, 158, 0);
+    border-color:rgb(9, 66, 1);
+}
+
+#eliminar:hover {
+    background-color: rgb(162, 0, 0);
+    border-color:rgb(71, 0, 0);
+}
+
+
+/*Sección botones de debajo de la tabla*/
+
+#botones {
+    display: flex;
+    justify-content: center;
+
+    width: 30%;
+
+    padding: 2%;
+    margin-top: 2%;
+}
+
+
+/*Boton Volver*/
+
+#volver {
+    width: 40%;
+
+    padding: 2%;
+
+    font-size: medium;
+
+    margin-right: 2%;
+
+    padding-left: 3%;
+    padding-right: 3%;  
+
+    align-content: center;
+    text-decoration: none;
+    text-align: center;	
+    color: rgb(189, 247, 255);
+    background-color: #006898;
+
+    border: 1.5px solid #0ffff8;
+    border-radius: 15px;
+    box-shadow: 0 7px #00c8ff;
+}
+
+#generateChartBtn {
+    width: 40%;
+    padding: 2%;
+    font-size: medium;
+}
+
+#volver:hover {
+    background-color: #002d51
+}
+
+#volver:active {
+  background-color: #002d51;
+  box-shadow: 0 5px #006898;
+  transform: translateY(4px);
+}
+
+
+/*Grafica*/
+
+#zonatitulografico {
+    margin-top: 2%;
+}
+
+#titulografico {
+    color:rgb(0, 200, 255);
+    text-align: center;
+}
+
+#zonagrafico {
+    margin-top: 2%;
+}
+
+#myChart {
+}
+
+
+/*Botones generar gráfica y descargar pdf*/
+.boton {
+    color: rgb(10, 67, 0);
+    background-color: #00d7ac;
+
+    border: 1.5px solid #0ffff8;
+    border-radius: 15px;
+    box-shadow: 0 7px #00ff80;
+}
+
+.boton:hover {
+    background-color: #005b09;
+}
+
+.boton:active {
+    color: #00ff80;
+    background-color: #00481c;
+    box-shadow: 0 5px #00af58;
+    transform: translateY(4px);
+}
+
+#chartBtnDiv {
+    width: 30%;
+
+    display: flex;
+    justify-content: center;
+
+    margin-top: 2%;
+    padding: 4%;
+}
+
+#descargarpdf {
+    width: 40%;
+
+    padding: 2%;
+    font-size: medium;
+}
