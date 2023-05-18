@@ -4,22 +4,46 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Modificación de usuario</title>
+	<link rel="stylesheet" href="modificar.css">
 </head>
 <body>
-	<h1>Modificación de usuario</h1>
-	<form action="index.php" method="post">
-		Usuario: <input type="text" name="usuario" value="##usuario##"><br>
-		Password: <input type="text" name="password" value="##password##"><br>
-		Administrador: 
-		<select name="administrador">
-			<option value="0">No es administrador</option>
-			<option value="1">Es administrador</option>
-		</select>
-		<br><br><br>
-		<input type="hidden" name="accion" value="validarmodificacion">
-		<input type="hidden" name="idusuario" value="##idusuario##">
-		<input type="submit"> <input type="reset">
-	</form>
-	<a href="index.php">Volver</a>
+	<div id="recuadro">
+		<div>
+			<h1 id="titulo">Modificación de usuario</h1>
+		</div>
+		<form action="index.php" method="post">
+
+			<div id="casillas">
+				<table id="introdatos">
+					<tr>
+						<td class="primeracolumna">Usuario:</td>
+						<td id="segundacolumna"><input class="introdatos" type="text" name="usuario" value="##usuario##"></td>
+					</tr>
+					<tr>
+						<td class="primeracolumna">Password:</td>
+						<td id="segundacolumna"><input class="introdatos" type="text" name="password" value="##password##"></td>
+					</tr>
+					<tr>
+						<td class="primeracolumna">Administrador:</td>
+						<td id="segundacolumna">
+							<select class="introdatos" name="administrador">
+								<option value="0">No es administrador</option>
+								<option value="1">Es administrador</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="botones">
+				<input class="boton" type="hidden" name="accion" value="validarmodificacion">
+				<input class="boton" type="hidden" name="idusuario" value="##idusuario##">
+				<input class="boton" type="submit"> 
+				<input class="boton" type="reset">
+			</div>
+		</form>
+	</div>
+	<div id="volver">
+		<a class="botonvolver" href="index.php">Volver</a>
+	</div>
 </body>
 </html>
