@@ -167,11 +167,8 @@ tr {
     margin-top: 2%;
 }
 
-#myChart {
-}
 
-
-/*Botones generar gráfica y descargar pdf*/
+/*Botones generar grafica y descargar pdf*/
 .boton {
     color: rgb(10, 67, 0);
     background-color: #00d7ac;
