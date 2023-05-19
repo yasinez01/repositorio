@@ -1,27 +1,9 @@
 body{
     background-image: url('img/fondoautobus.png');
 }
-header{
-    display: flex;
-    margin: 40px;
-    padding:10px;
-    padding-bottom: 0px;
-    margin-top: 0px;
-    background:linear-gradient(rgb(70%, 0%, 30%), rgb(64, 0, 255),rgb(86, 7, 102));
-    border-style: solid;
-    border-color: black;
-    border-radius:6px;
-}
-ul{
-    list-style-type: none;  
-    display:flex;
-    padding: 5px;
-}
-li{
-    padding: 30px;
-    margin-left:10%;
-    margin-right:10%;
-}
+
+/*Cabecera de redes sociales y login*/
+
 .enlaces{
     width:100%;
     padding-bottom: 0px;
@@ -37,12 +19,29 @@ li{
     padding: 2px;
     margin-left: 30px;
 }
+
+ul{
+    list-style-type: none;  
+    display:flex;
+    padding: 5px;
+}
+
+li{
+    padding: 30px;
+    margin-left:10%;
+    margin-right:10%;
+}
+
 #twitter{
     border-radius: 20%;
 }
+
 #rss{
     border-radius: 20%;
 }
+
+/*Area login*/
+
 #login{
     margin-left:63%;
     padding:0;
@@ -56,60 +55,8 @@ li{
     display: flex;
     background: linear-gradient(rgb(70%, 0%, 30%),rgb(86, 7, 102));
 }
-#iframe{
-    height:80vh;
 
-    width: 90%; /*70%*/
-    margin-left: 5%; /*12%*/
-/*
-    width:70%;
-    margin-left: 12%;
-*/
-    background: white;
-}
-.Funcionalidades{
-    width:100%;
-    margin-top: 3%;
-    margin-bottom:3%;
-}
-.Funcionalidades a{
-    border: solid;
-    background: rgb(64, 0, 255);
-    border-color: rgb(23, 23, 99);
-    border-radius: 7px;
-    padding-top:10px;
-    padding-bottom:10px;
-    text-decoration: none;
-    color: white;  
-    display: inline;
-}
-#paradas{
-    float: left;
-    margin-left:3%;
-}
-#calendario{
-    float: left;
-    margin-left:17%;
-}
-#linea{
-    float: left;
-    margin-left:26%;
-}
-#trayecto{
-    float:right;
-    margin-right:3%;
-}
-#imagensession{
-    width:30%;
-    height: 40%;
-    margin-bottom:1%;
-    margin-left:8%;
-    padding-right: 10px;
-}
-#cabeceraEMTMadrid{
-    border: 1px solid black;
-}
-#usuarioregistrado{
+#usuarioregistrado {
     border: solid;
     border-color: rgb(11, 11, 53);
     background-color: rgb(41, 6, 144);
@@ -123,7 +70,16 @@ li{
     border-radius: 15px;
     margin-right:1%;
 }
-#session{
+
+#imagensession {
+    width:30%;
+    height: 40%;
+    margin-bottom:1%;
+    margin-left:8%;
+    padding-right: 10px;
+}
+
+#botonsession {
     border:solid;
     border-color: rgb(5, 0, 11);
     padding:0;
@@ -135,4 +91,73 @@ li{
     padding-right:7px;
     margin-top:10px;
     margin-bottom:10px;
+}
+
+/*Cabecera de botones con los diferentes apartados*/
+
+header {
+    display: flex;
+    margin: 40px;
+    padding:10px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    background:linear-gradient(rgb(70%, 0%, 30%), rgb(64, 0, 255),rgb(86, 7, 102));
+    border-style: solid;
+    border-color: black;
+    border-radius:6px;
+}
+
+#cabeceraEMTMadrid {
+    border: 1px solid black;
+}
+
+.Funcionalidades {
+    width:100%;
+    margin-top: 3%;
+    margin-bottom:3%;
+}
+.Funcionalidades a {
+    border: solid;
+    background: rgb(64, 0, 255);
+    border-color: rgb(23, 23, 99);
+    border-radius: 7px;
+    padding-top:10px;
+    padding-bottom:10px;
+    text-decoration: none;
+    color: white;  
+    display: inline;
+}
+
+#paradas {
+    float: left;
+    margin-left:3%;
+}
+
+#calendario {
+    float: left;
+    margin-left:17%;
+}
+
+#linea {
+    float: left;
+    margin-left:26%;
+}
+
+#trayecto {
+    float:right;
+    margin-right:3%;
+}
+
+/*Iframe que muestra las pantallas de los diferentes apartados*/
+
+#iframe {
+    height:80vh;
+
+    width: 90%; /*70%*/
+    margin-left: 5%; /*12%*/
+/*
+    width:70%;
+    margin-left: 12%;
+*/
+    background: white;
 }

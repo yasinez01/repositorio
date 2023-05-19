@@ -67,11 +67,11 @@
             <li id="login">
                  <?php
                 if(isset($_SESSION['usuarioregistrado'])){
-                    echo "<a id='usuarioregistrado'>".$_SESSION['nombreusuario']."</a><br><br>";
-                    echo "<a href='cerrarsession.php' id='session'>Cerrar Sessión</a>";
+                    echo "<a id='usuarioregistrado' href='administrador/menu.html'".$_SESSION['nombreusuario']."</a><br><br>";
+                    echo "<a href='cerrarsession.php' id='botonsession'>Cerrar Sessión</a>";
                 }else{
                     echo "<img id='imagensession' src='img/login.png'><br>";
-                    echo "<a href='loginregister.html' id='session'>Iniciar sesión</a>";
+                    echo "<a href='loginregister.html' id='botonsession'>Iniciar sesión</a>";
                 }
                 ?>
             </li>
