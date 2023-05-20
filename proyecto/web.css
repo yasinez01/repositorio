@@ -1,5 +1,7 @@
 body{
-    background-image: url('img/fondoautobus.png');
+    background-image: url('img/fondoautobusOriginal.png');
+    background-position: center;
+    background-size: 100%;
 }
 
 
@@ -9,12 +11,14 @@ body{
     width:100%;
     padding-bottom: 0px;
 }
+
 .enlaces img{
     padding: 0px;
     margin: 0px;
     width:30px;
     height:30px;
 }
+
 .enlaces li{
     margin: 2px;
     padding: 2px;
@@ -55,7 +59,9 @@ li{
 
     padding:0;
 
-    margin-left: 63%;
+    /*margin-left: 63%;*/
+    margin-left: 55%;
+    margin-right: 38px; /**/
     margin-bottom:-8px;
     margin-top:-7px;
 
@@ -89,7 +95,9 @@ li{
     height: 40%;
 
     padding-right: 10px;
-    margin-bottom: 1%;
+    margin-top: 10px;
+    /*margin-bottom: 1%;*/
+    margin-bottom: 10px;
     margin-left: 8%;
 }
 
@@ -97,19 +105,27 @@ li{
     /*background: linear-gradient(rgb(57, 0, 179),rgb(7, 102, 9));*/
     background-color:rgb(0, 93, 168);
 
+
+
     border:solid;
     border-color: rgb(5, 0, 11);
 
     padding:0;
     padding-top:10px;
-    padding-left:10px;
+    /*padding-left:10px;*/
+    padding-left: 15%;
     padding-right:7px;
     margin-top:10px;
-    margin-bottom:10px;
+    margin-bottom: 10px;
     margin-right: 3%;
 
     color:white;
     text-decoration: none;
+}
+
+#botonsession:hover {
+    background-color: rgb(0, 130, 237);
+    color: black;
 }
 
 
@@ -121,6 +137,10 @@ header {
     display: flex;
 
     margin: 40px;
+/*
+    margin-left: 2%;
+    margin-right: 2%;
+*/
     margin-top: 0px;
     padding: 10px;
     padding-bottom: 0px;
@@ -160,15 +180,18 @@ header {
     padding-top: 10px;
     padding-bottom: 10px;
 
+    font-size: large;
     text-decoration: none;
     color: white;  
 }
 
-/*
-.apartados {
-    padding: 2%;
+
+.apartados:hover {
+    background-color: rgb(0, 130, 237);
+    color: black;
+    border: 1.5px solid black;
 }
-*/
+
 
 #paradas {
     float: left;
@@ -182,7 +205,7 @@ header {
 #calendario {
     float: left;
     /*margin-left: 17%;*/
-    margin-left: 13%;
+    margin-left: 11%;
 
     padding-left: 2%;
     padding-right: 2%;
@@ -191,7 +214,7 @@ header {
 #linea {
     float: left;
     /*margin-left: 26%;*/
-    margin-left: 12%;
+    margin-left: 11%;
 
     padding-left: 2%;
     padding-right: 2%;
@@ -214,8 +237,8 @@ header {
 
     height: 80vh;
 
-    width: 70%; /*90%*/
+    width: 75%; /*90%*/
     margin-left: 12%; /*5%*/
 
-    border-color: 2px solid rgb(0, 106, 236);
+    border: 1.5px solid rgb(0, 115, 255);
 }
