@@ -10,4 +10,3 @@
     $Coneccion->cerrarSession();
     header("location:web.php");
 ?>
-  

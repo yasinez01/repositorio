@@ -24,13 +24,12 @@ body {
     margin-right: 3%;
 }
 
-/**/
 .primeraColumna{
     width: 20%;
 }
 
 .informacion{
-    width: 30%;
+    width: 50%;
     background-color: rgb(88, 88, 208);
     color:azure;
     margin-right: 80%;
@@ -43,18 +42,8 @@ body {
     margin-bottom: 5%;
 }
 
-/*
-#opcion1 {
-    margin-bottom: 5%;
-}
-
-#opcion2 {
-    margin-bottom: 5%;
-}
-*/
-
 #datos, td{
-    width: 30%;
+    width: 40%;
     margin-bottom: 2%;
 }
 

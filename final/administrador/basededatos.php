@@ -1,5 +1,4 @@
 <?php 
-
 	$servidor = "dbserver";
 	$usuario = "grupo28";
 	$password = "Fi0ci3eiy9";
@@ -9,5 +8,4 @@
 	if (!$con) {
 		die ("Conexión fallida: " . mysqli_connect_error());
 	}
-
 ?>

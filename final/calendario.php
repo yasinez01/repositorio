@@ -51,7 +51,7 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
                 <input type="hidden" name="seccion" value="calendario">
                 <input type="hidden" name="fechaini" value="<?php echo $fechaini ?>">
                 <input type="hidden" name="fechafin" value="<?php echo $fechafin ?>">
-                <input type="submit" value="Click para generar CSV">
+                <input class="botoncsv" type="submit" value="Descargar CSV">
             </form>
             <?php
             }

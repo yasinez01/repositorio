@@ -108,7 +108,7 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
                     <?php
                 }
             ?>
-            <input type="submit" value="Click para generar CSV">
+            <input class="botoncsv" type="submit" value="Descargar CSV">
         </form>
         <?php
         }

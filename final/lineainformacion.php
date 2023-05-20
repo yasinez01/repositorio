@@ -108,7 +108,7 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
                     <input type="hidden" name="seccion" value="informacionlinea">
                     <input type="hidden" name="linea" value="<?php echo $numerolinea ?>">
                     <input type="hidden" name="fecha" value="<?php echo $fecha1 ?>">
-                    <input type="submit" value="Click para generar CSV">
+                    <input class="botoncsv" type="submit" value="Descargar CSV">
                 </form>
                 <?php
                 }
@@ -124,7 +124,7 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
                 <form action="csv.php" method="post" target="_blank">
                     <input type="hidden" name="seccion" value="informacionlineas">
                     <input type="hidden" name="fecha" value="<?php echo $fecha2 ?>">
-                    <input type="submit" value="Click para generar CSV">
+                    <input class="botoncsv" type="submit" value="Descargar CSV">
                 </form>
                 <?php
                 }
@@ -135,9 +135,4 @@ if(substr($datos->{'description'}, 0, 13)=== "NO data found"){
         ?>
     </body>
 <?php
-
-
-
-
-
 }

@@ -1,8 +1,5 @@
 body {
-    /*background-color: #000000;*/
-    /*background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);*/
     background: linear-gradient(rgb(2, 0, 48) 0%, rgb(4, 0, 84) 35%, rgba(9,9,121,1) 100%);
-    /*background: linear-gradient(rgba(9,9,121,1) 0%, rgb(4, 0, 84) 35%, rgba(2,0,36,1) 100%);*/
     margin-bottom: 4%;
 }
 
@@ -30,11 +27,10 @@ table, td{
     border: 1.5px solid #0ffff8;
     background-color: #00a9f0;
     border-collapse: collapse;
-    /*border-color: aqua;*/
     margin: 20px;
-  }
+}
 
-  td {
+td {
     color:#000000;
 }
 
@@ -47,26 +43,37 @@ table, td{
 .segundaColumna {
     text-align: left;
 }
+
 .contenido{
     margin-left:25%;
 }
+
 #informacion_paradas{
     margin-bottom: 5%;
 }
 
-#volver {
-    /*
-    text-decoration: none;
-    background-color: #00a9f0;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border: 1.5px solid #0ffff8;
-    color: rgb(189, 247, 255);
-    font-style: bold;
-    */
+.botoncsv {
+    color: rgb(10, 67, 0);
+    background-color: #00d7ac;
 
+    border: 1.5px solid #0ffff8;
+    border-radius: 15px;
+    box-shadow: 0 7px #00ff80;
+    margin-bottom: 4%;
+}
+
+.botoncsv:hover {
+    background-color: #009073;
+}
+
+.botoncsv:active {
+    color: white;
+    background-color: #004537;
+    box-shadow: 0 5px #008a45;
+    transform: translateY(4px);
+}
+
+#volver {
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 10px;
@@ -85,33 +92,13 @@ table, td{
 
     border: 1.5px solid #0ffff8;
     border-radius: 15px;
-    /*
-    border: none;
-    border-radius: 15px;
-    */
-    box-shadow: 0 7px #00c8ff;
-    /*
-    text-decoration: none;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: yellow;
-    color: blue;
-    margin-left: 50%;
-    border: solid;
-    background: #6cc1e3;
 
-    Esta es la parte del original:
-    text-decoration: none;
-        color: blue;
-        margin-left: 50%;
-        border: solid;
-        background: #6cc1e3;
-    */
+    box-shadow: 0 7px #00c8ff;
 }
 
-#volver:hover {background-color: #002d51}
+#volver:hover {
+    background-color: #002d51;
+}
 
 #volver:active {
   background-color: #002d51;

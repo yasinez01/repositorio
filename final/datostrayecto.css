@@ -47,14 +47,14 @@ th {
     text-align: center;
 }
 
-#informacion_trayectos{
+#informacion_trayectos {
     margin-top: 3%;
     margin-left: 10%;
     margin-bottom: 5%;
     display: flex;
 }
 
-table, td{
+table, td {
     color: rgb(189, 247, 255);
     width: 90%;
     border: 1.5px solid #0ffff8;
@@ -63,7 +63,7 @@ table, td{
     margin: 20px;
   }
 
-  td {
+td {
     color:#000000;
 }
 
@@ -106,13 +106,13 @@ table, td{
 }
 
 #volver:hover {
-    background-color: #002d51
+    background-color: #002d51;
 }
 
 #volver:active {
-  background-color: #002d51;
-  box-shadow: 0 5px #006898;
-  transform: translateY(4px);
+    background-color: #002d51;
+    box-shadow: 0 5px #006898;
+    transform: translateY(4px);
 }
 
 /*MAPA*/
@@ -145,3 +145,13 @@ table, td{
     margin-bottom: 4%;
 }
 
+.botoncsv:hover {
+    background-color: #009073;
+}
+
+.botoncsv:active {
+    color: white;
+    background-color: #004537;
+    box-shadow: 0 5px #008a45;
+    transform: translateY(4px);
+}
