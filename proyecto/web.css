@@ -45,7 +45,8 @@ li{
 /*Area login*/
 
 #login{
-    background: linear-gradient(rgb(70%, 0%, 30%),rgb(86, 7, 102));
+    /*background: linear-gradient(rgb(70%, 0%, 30%),rgb(86, 7, 102));*/
+    background:linear-gradient(rgb(0, 0, 0), rgb(15, 0, 59), rgb(23, 0, 92), rgb(15, 0, 59), rgb(0, 0, 0));
 
     height: 20%;
     width: 100%;
@@ -59,7 +60,8 @@ li{
     margin-top:-7px;
 
     border: solid;
-    border-color: rgb(147, 42, 165);
+    /*border-color: rgb(147, 42, 165);*/
+    border-color: rgb(0, 90, 199);
     border-radius: 6px;
 }
 
@@ -92,7 +94,8 @@ li{
 }
 
 #botonsession {
-    background: linear-gradient(rgb(57, 0, 179),rgb(7, 102, 9));
+    /*background: linear-gradient(rgb(57, 0, 179),rgb(7, 102, 9));*/
+    background-color:rgb(0, 93, 168);
 
     border:solid;
     border-color: rgb(5, 0, 11);
@@ -103,6 +106,7 @@ li{
     padding-right:7px;
     margin-top:10px;
     margin-bottom:10px;
+    margin-right: 3%;
 
     color:white;
     text-decoration: none;
@@ -112,8 +116,8 @@ li{
 /*Cabecera de botones con los diferentes apartados*/
 
 header {
-    background:linear-gradient(rgb(70%, 0%, 30%), rgb(64, 0, 255),rgb(86, 7, 102));
-
+    /*background:linear-gradient(rgb(70%, 0%, 30%), rgb(64, 0, 255),rgb(86, 7, 102));*/
+    background:linear-gradient(rgb(0, 0, 0), rgb(15, 0, 59), rgb(23, 0, 92), rgb(15, 0, 59), rgb(0, 0, 0));
     display: flex;
 
     margin: 40px;
@@ -122,12 +126,14 @@ header {
     padding-bottom: 0px;
     
     border-style: solid;
-    border-color: black;
+    /*border-color: black;*/
+    border-color: rgb(0, 93, 168);
     border-radius:6px;
 }
 
 #cabeceraEMTMadrid {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
+    border: 0.5px solid rgb(0, 140, 255);
 }
 
 .Funcionalidades {
@@ -138,12 +144,17 @@ header {
 }
 
 .Funcionalidades a {
-    background: rgb(64, 0, 255);
+    /*background: rgb(64, 0, 255);*/
+    /*background:linear-gradient(rgb(0, 86, 166), rgb(23, 0, 92), rgb(0, 86, 166)); No me desagrada*/
+    background-color: rgb(0, 93, 168);
 
     display: inline;
 
+    border: 1.5px solid rgb(0, 121, 220);
+    /*
     border: solid;
     border-color: rgb(23, 23, 99);
+    */
     border-radius: 7px;
 
     padding-top: 10px;
@@ -153,24 +164,46 @@ header {
     color: white;  
 }
 
+/*
+.apartados {
+    padding: 2%;
+}
+*/
+
 #paradas {
     float: left;
-    margin-left: 3%;
+    /*margin-left: 3%;*/
+    margin-left: 4%;
+
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 #calendario {
     float: left;
-    margin-left: 17%;
+    /*margin-left: 17%;*/
+    margin-left: 13%;
+
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 #linea {
     float: left;
-    margin-left: 26%;
+    /*margin-left: 26%;*/
+    margin-left: 12%;
+
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 #trayecto {
     float: right;
-    margin-right: 3%;
+    /*margin-right: 3%;*/
+    margin-right: 4%;
+
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 
@@ -181,6 +214,8 @@ header {
 
     height: 80vh;
 
-    width: 90%; /*70%*/
-    margin-left: 5%; /*12%*/
+    width: 70%; /*90%*/
+    margin-left: 12%; /*5%*/
+
+    border-color: 2px solid rgb(0, 106, 236);
 }

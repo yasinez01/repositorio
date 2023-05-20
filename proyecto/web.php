@@ -80,10 +80,10 @@
     <header>
         <img id="cabeceraEMTMadrid" src="img/icono.png" width="100" height="100"></img>
         <div class="Funcionalidades">
-            <a href="paradasalrededor.html" target="iframe" id="paradas">Paradas Alrededor</a>
-            <a href="calendario.html" target="iframe" id="calendario">Calendario</a>
-            <a href="lineainformacion.html" target="iframe" id="linea">Informacion De Línea</a>
-            <a href="linea.html" target="iframe" id="trayecto">Trayecto</a>
+            <a href="paradasalrededor.html" target="iframe" id="paradas" class="apartados">Paradas Alrededor</a>
+            <a href="calendario.html" target="iframe" id="calendario" class="apartados">Calendario</a>
+            <a href="lineainformacion.html" target="iframe" id="linea" class="apartados">Informacion De Línea</a>
+            <a href="linea.html" target="iframe" id="trayecto" class="apartados">Trayecto</a>
 
         </div>
     </header>
