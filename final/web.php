@@ -33,10 +33,7 @@
             $losdatos=json_decode($response);
             $accessToken=$losdatos->{'data'}[0]->{'accessToken'}; 
             $_SESSION['accessToken']= $accessToken; 
-            $_SESSion['logeado']=false;
-            echo'<script type="text/javascript">
-                alert("El accessToken es :'.$accessToken.' !!");
-                    </script>'; 
+            $_SESSion['logeado']=false; 
         }
         $_SESSION['tokengenerado']=true;
     ?>  

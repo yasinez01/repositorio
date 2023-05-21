@@ -7,17 +7,19 @@
         $url='https://openapi.emtmadrid.es/v1/transport/busemtmad/lines/'.$numero.'/route/';
         $respuesta=$Consulta->realizarconsulta($url,'GET');
         $datos = json_decode($respuesta);
-        $csv_file = fopen('ruta_'.$numero.'_Ida.csv', 'w');
-        fputcsv($csv_file, array( 'Nombre Parada', 'Numero Parada','Latitud', 'Longitud'));
+        $csv_filename='ruta_'.$numero.'_Ida.csv';
+        // Establecer las cabeceras
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="' . $csv_filename . '"');
+        // Abrir el archivo CSV para escritura
+        $csv_file = fopen('php://output', 'w');
+        // Escribir las cabeceras en el archivo CSV
+        fputcsv($csv_file,['Nombre Parada', 'Numero Parada','Latitud', 'Longitud']);
         $data = $datos->{'data'}->{'stops'}->{'toB'}->{'features'};
         for($i=0;$i<sizeof($data);$i++){
             fputcsv($csv_file, array($data[$i]->{'properties'}->{'stopName'}, $data[$i]->{'properties'}->{'stopNum'}, $data[$i]->{'geometry'}->{'coordinates'}[0], $data[$i]->{'geometry'}->{'coordinates'}[1]));
         }
         fclose($csv_file);
-        $csv_filename = 'ruta_'.$numero.'_Ida.csv';
-        header('Content-Type: application/csv');
-        header('Content-Disposition: attachment; filename="'.$csv_filename.'"');
-        readfile($csv_filename);
         exit();
     }else if($seccion =="rutaVuelta"){
         $numero = $_POST["numero"];
@@ -25,17 +27,19 @@
         $url='https://openapi.emtmadrid.es/v1/transport/busemtmad/lines/'.$numero.'/route/';
         $respuesta=$Consulta->realizarconsulta($url,'GET');
         $datos = json_decode($respuesta);
-        $csv_file = fopen('ruta_'.$numero.'_Vuelta.csv', 'w');
-        fputcsv($csv_file, array( 'Nombre Parada', 'Numero Parada','Latitud', 'Longitud'));
+        $csv_filename = 'ruta_'.$numero.'_Vuelta.csv';
+        // Establecer las cabeceras
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="' . $csv_filename . '"');
+        // Abrir el archivo CSV para escritura
+        $csv_file = fopen('php://output', 'w');
+        // Escribir las cabeceras en el archivo CSV
+        fputcsv($csv_file, ['Nombre Parada', 'Numero Parada','Latitud', 'Longitud']);
         $data = $datos->{'data'}->{'stops'}->{'toA'}->{'features'};
         for($i=0;$i<sizeof($data);$i++){
             fputcsv($csv_file, array($data[$i]->{'properties'}->{'stopName'}, $data[$i]->{'properties'}->{'stopNum'}, $data[$i]->{'geometry'}->{'coordinates'}[0], $data[$i]->{'geometry'}->{'coordinates'}[1]));
         }
         fclose($csv_file);
-        $csv_filename = 'ruta_'.$numero.'_Vuelta.csv';
-        header('Content-Type: application/csv');
-        header('Content-Disposition: attachment; filename="'.$csv_filename.'"');
-        readfile($csv_filename);
         exit();
     }else if($seccion == "paradasalrededorconnumero"){
         $numeroparada = $_POST["numeroparada"];
@@ -44,8 +48,14 @@
         $url='https://openapi.emtmadrid.es/v2/transport/busemtmad/stops/arroundstop/'.$numeroparada.'/'.$metros.'/';
         $respuesta=$Consulta->realizarconsulta($url,'GET');
         $datos = json_decode($respuesta);
-        $csv_file = fopen('paradanumero_'.$numeroparada.'_con_'.$metros.'_metros.csv', 'w');
-        fputcsv($csv_file, array( 'Id Parada','Nombre', 'Latitud','Longitud', 'Dirección','Linea/as'));
+        $csv_filename = 'paradanumero_'.$numeroparada.'_con_'.$metros.'_metros.csv';
+        // Establecer las cabeceras
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="' . $csv_filename . '"');
+        // Abrir el archivo CSV para escritura
+        $csv_file = fopen('php://output', 'w');
+        // Escribir las cabeceras en el archivo CSV
+        fputcsv($csv_file, ['Id Parada','Nombre', 'Latitud','Longitud', 'Dirección','Linea/as']);
         $data = $datos->{'data'};
         for($i=0;$i<sizeof($data);$i++){
             $lineas="";
@@ -58,21 +68,24 @@
             fputcsv($csv_file, array($data[$i]->{'stopId'}, $data[$i]->{'stopName'}, $data[$i]->{'geometry'}->{"coordinates"}[0], $data[$i]->{'geometry'}->{'coordinates'}[1],$data[$i]->{'address'},$lineas));
         }
         fclose($csv_file);
-        $csv_filename = 'paradanumero_'.$numeroparada.'_con_'.$metros.'_metros.csv';
-        header('Content-Type: application/csv');
-        header('Content-Disposition: attachment; filename="'.$csv_filename.'"');
-        readfile($csv_filename);
         exit();
     }else if($seccion == "paradasalrededorconlongitudylatitud"){
-        $longitud=$_POST["longitud"];
-        $latitud=$_POST["latitud"];
-        $radio=$_POST["radio"];
+        $longitud = $_POST["longitud"];
+        $latitud = $_POST["latitud"];
+        $radio = $_POST["radio"];
         $Consulta = new Consulta();
-        $url='https://openapi.emtmadrid.es/v2/transport/busemtmad/stops/arroundxy/'. $longitud.'/'. $latitud .'/'.$radio.'/';
-        $respuesta=$Consulta->realizarconsulta($url,'GET');
+        $url = 'https://openapi.emtmadrid.es/v2/transport/busemtmad/stops/arroundxy/' . $longitud . '/' . $latitud . '/' . $radio . '/';
+        $respuesta = $Consulta->realizarconsulta($url, 'GET');
         $datos = json_decode($respuesta);
-        $csv_file = fopen('parada_longitud_'.$longitud.'_latitud_'.$latitud.'_metros-'.$radio.'.csv', 'w');
-        fputcsv($csv_file, array( 'Id Parada','Nombre', 'Latitud','Longitud', 'Dirección','Linea/as'));
+        $csv_filename = 'parada_longitud_' . $longitud . '_latitud_' . $latitud . '_metros-' . $radio . '.csv';
+        // Establecer las cabeceras
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="' . $csv_filename . '"');
+        // Abrir el archivo CSV para escritura
+        $csv_file = fopen('php://output', 'w');
+        // Escribir las cabeceras en el archivo CSV
+        fputcsv($csv_file, ['Id Parada', 'Nombre', 'Latitud', 'Longitud', 'Dirección', 'Linea/as']);
+        // Escribir los datos en el archivo CSV
         $data = $datos->{'data'};
         for($i=0;$i<sizeof($data);$i++){
             $lineas="";
@@ -84,13 +97,9 @@
             }
             fputcsv($csv_file, array($data[$i]->{'stopId'}, $data[$i]->{'stopName'}, $data[$i]->{'geometry'}->{"coordinates"}[0], $data[$i]->{'geometry'}->{'coordinates'}[1],$data[$i]->{'address'},$lineas));
         }
+        // Cerrar el archivo CSV
         fclose($csv_file);
-        $csv_filename = 'parada_longitud_'.$longitud.'_latitud_'.$latitud.'_metros-'.$radio.'.csv';
-        header('Content-Type: application/csv');
-        header('Content-Disposition: attachment; filename="'.$csv_filename.'"');
-        readfile($csv_filename);
         exit();
-        
     }else if($seccion== "calendario"){
         $fechaini=$_POST["fechaini"];
         $fechafin=$_POST["fechafin"];
@@ -98,8 +107,14 @@
         $url='https://openapi.emtmadrid.es/v1/transport/busemtmad/calendar/'.str_replace("-","",$fechaini).'/'.str_replace("-","",$fechafin).'/';
         $respuesta=$Consulta->realizarconsulta($url,'GET');
         $datos = json_decode($respuesta);
-        $csv_file = fopen('calendario_fechaini_'.$fechaini.'_fechafin_'.$fechafin.'.csv', 'w');
-        fputcsv($csv_file, array( 'Fecha','¿HUELGA?', 'TIPO DE DÍA'));
+        $csv_filename = 'calendario_fechaini_'.$fechaini.'_fechafin_'.$fechafin.'.csv';
+        // Establecer las cabeceras
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="' . $csv_filename . '"');
+        // Abrir el archivo CSV para escritura
+        $csv_file = fopen('php://output', 'w');
+        // Escribir las cabeceras en el archivo CSV
+        fputcsv($csv_file, ['Fecha', '¿HUELGA?', 'TIPO DE DÍA']);
         for($i=0;$i<sizeof($datos->{'data'});$i++){
             $dia= explode(" ",$datos->{'data'}[$i]->{'date'});
             $huelga="Sí";
@@ -110,10 +125,6 @@
             fputcsv($csv_file, array($dia[0],$huelga, $tipodia));
         }
         fclose($csv_file);
-        $csv_filename = 'calendario_fechaini_'.$fechaini.'_fechafin_'.$fechafin.'.csv';
-        header('Content-Type: application/csv');
-        header('Content-Disposition: attachment; filename="'.$csv_filename.'"');
-        readfile($csv_filename);
         exit();
     }else if($seccion == "informacionlineas"){
         $fecha = $_POST["fecha"];
@@ -121,16 +132,18 @@
         $url='https://openapi.emtmadrid.es/v2/transport/busemtmad/lines/info/'.$fecha.'/';
         $respuesta=$Consulta->realizarconsulta($url,'GET');
         $datos = json_decode($respuesta);
-        $csv_file = fopen('informacion_todas_lineas_fecha_'.$fecha.'.csv', 'w');
-        fputcsv($csv_file, array( 'Linea','Grupo'));
+        $csv_filename = 'informacion_todas_lineas_fecha_'.$fecha.'.csv';
+        // Establecer las cabeceras
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="' . $csv_filename . '"');
+        // Abrir el archivo CSV para escritura
+        $csv_file = fopen('php://output', 'w');
+        // Escribir las cabeceras en el archivo CSV
+        fputcsv($csv_file, ['Linea','Grupo']);
         for($i=0; $i<sizeof($datos->{'data'}); $i++){
             fputcsv($csv_file, array($datos->{'data'}[$i]->{'line'},$datos->{'data'}[$i]->{'group'}));
         }
         fclose($csv_file);
-        $csv_filename = 'informacion_todas_lineas_fecha_'.$fecha.'.csv';
-        header('Content-Type: application/csv');
-        header('Content-Disposition: attachment; filename="'.$csv_filename.'"');
-        readfile($csv_filename);
         exit();
     }else if($seccion == "informacionlinea"){
         $numerolinea = $_POST["linea"];
@@ -139,8 +152,14 @@
         $url='https://openapi.emtmadrid.es/v1/transport/busemtmad/lines/'.$numerolinea.'/info/'.str_replace("-","",$fecha).'/';  
         $respuesta=$Consulta->realizarconsulta($url,'GET');
         $datos = json_decode($respuesta);
-        $csv_file = fopen('informacion_linea_'.$numerolinea.'_fecha_'.$fecha.'.csv', 'w');
-        fputcsv($csv_file, array( 'Linea','Desde,Hasta,Tipo día,Hora Inicio 1,Hora fin 1, Minima frecuencia espera min 1 , Maxima frencuencia espera min 1,Hora Inicio 2,Hora fin 2, Minima frecuencia espera min 2, Maxima frencuencia espera min 2'));
+        $csv_filename = 'informacion_linea_'.$numerolinea.'_fecha_'.$fecha.'.csv';
+        // Establecer las cabeceras
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="' . $csv_filename . '"');
+        // Abrir el archivo CSV para escritura
+        $csv_file = fopen('php://output', 'w');
+        // Escribir las cabeceras en el archivo CSV
+        fputcsv($csv_file, ['Linea','Desde,Hasta,Tipo día,Hora Inicio 1,Hora fin 1, Minima frecuencia espera min 1 , Maxima frencuencia espera min 1,Hora Inicio 2,Hora fin 2, Minima frecuencia espera min 2, Maxima frencuencia espera min 2']);
         for($i=0;$i<sizeof($datos->{'data'});$i++){
             $data = $datos->{'data'}[$i];
             for($j=0; $j<sizeof($datos->{'data'}[$i]->{'timeTable'}); $j++){
@@ -151,10 +170,6 @@
             }
         }
         fclose($csv_file);
-        $csv_filename = 'informacion_linea_'.$numerolinea.'_fecha_'.$fecha.'.csv';
-        header('Content-Type: application/csv');
-        header('Content-Disposition: attachment; filename="'.$csv_filename.'"');
-        readfile($csv_filename);
         exit();
     }
     fclose($csv_file);

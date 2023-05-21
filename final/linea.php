@@ -166,4 +166,3 @@ $datos = json_decode($respuesta);
     ?>
     </body>
 </html>
-<?php

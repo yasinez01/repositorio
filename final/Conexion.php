@@ -36,19 +36,19 @@
             mysqli_free_result($resultado);
             return 0;
         }
-        function RegistrarUsuario($usuario,$pass){
+        function RegistrarUsuario($usuario, $pass) {
             $stmt = $this->conexion->prepare("INSERT INTO db_grupo28.final_usuario (usuario, password, administrador) VALUES (?, ?, 0)");
             $stmt->bind_param("ss", $usuario, $pass);
-            if($stmt->execute()){
-                echo'<script type="text/javascript">
-                    alert("Inserccion completa con exito");
-                    window.location.href="web.php";
-                </script>';
-            }else{
-                echo'<script type="text/javascript">
-                    alert("Inserccion fallida");
-                    window.location.href="loginregister.html";
-                </script>';
+            if ($stmt->execute()) {
+                echo '<script type="text/javascript">
+                        alert("Inserción completa con éxito");
+                        window.location.href="web.php";
+                    </script>';
+            } else {
+                echo '<script type="text/javascript">
+                        alert("Inserción fallida");
+                        window.location.href="loginregister.html";
+                    </script>';
             }
             $stmt->close();
         }

@@ -46,7 +46,7 @@
 		generateChartBtn.addEventListener('click', function() {
 			//Creamos titulo del grafico:
 			const titulografico = document.createElement('h2');
-			titulografico.innerText = 'Porcentaje de administradores y no administradores';
+			if (!buttonCreated) titulografico.innerText = 'Porcentaje de administradores y no administradores';
 			titulografico.id = "titulografico";
 			divtitulografico.appendChild(titulografico);
 
